@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxcbli2gp8xha"]
+
+[ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_lnn28"]
+[ext_resource type="Script" uid="uid://dv8s5s2yyjd55" path="res://ui/customui/parameter_slider.gd" id="2_urjfe"]
+
+[node name="ParameterSlider" type="ProgressBar" node_paths=PackedStringArray("text", "edit")]
+offset_right = 1.0
+offset_bottom = 1.0
+size_flags_horizontal = 3
+theme = ExtResource("1_lnn28")
+show_percentage = false
+script = ExtResource("2_urjfe")
+text = NodePath("Label")
+edit = NodePath("LineEdit")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 8.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lnn28")
+theme_override_font_sizes/font_size = 12
+text = "128"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lnn28")
+text = "128"
+alignment = 1
+select_all_on_focus = true
+caret_blink = true
+
+[connection signal="focus_exited" from="LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

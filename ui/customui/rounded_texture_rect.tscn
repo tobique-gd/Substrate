@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dndebvwdkam8b"]
+
+[ext_resource type="Shader" uid="uid://dxpr8lcogd0pv" path="res://ui/shaders/rounded_corners.gdshader" id="1_b1d5x"]
+[ext_resource type="Texture2D" uid="uid://dfxv3f0odrcov" path="res://assets/hdris/sky1.exr" id="2_q3dj1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rohvn"]
+resource_local_to_scene = true
+shader = ExtResource("1_b1d5x")
+shader_parameter/radius = 0.05
+shader_parameter/exposure = 3.0
+shader_parameter/focused = false
+
+[node name="Environment" type="TextureRect"]
+material = SubResource("ShaderMaterial_rohvn")
+texture = ExtResource("2_q3dj1")
+expand_mode = 5

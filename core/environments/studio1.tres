@@ -1,0 +1,16 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://bb72hih3dvih4"]
+
+[ext_resource type="Texture2D" uid="uid://b3ph5k5qi45el" path="res://assets/hdris/studio1.exr" id="1_meqrt"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gtwce"]
+panorama = ExtResource("1_meqrt")
+
+[sub_resource type="Sky" id="Sky_rohvn"]
+sky_material = SubResource("PanoramaSkyMaterial_gtwce")
+
+[resource]
+background_mode = 2
+background_color = Color(0.0936376, 0.0936375, 0.100564, 1)
+sky = SubResource("Sky_rohvn")
+tonemap_mode = 2
+glow_enabled = true

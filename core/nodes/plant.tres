@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlantGenerator" load_steps=2 format=3 uid="uid://m70djxom5he"]
+
+[ext_resource type="Script" uid="uid://qdlioyanhf7" path="res://core/nodes/plant.gd" id="1_v0344"]
+
+[resource]
+script = ExtResource("1_v0344")
+metadata/_custom_type_script = "uid://qdlioyanhf7"

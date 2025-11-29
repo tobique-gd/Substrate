@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BranchesGenerator" load_steps=2 format=3 uid="uid://0f4wc1kosgdl"]
+
+[ext_resource type="Script" uid="uid://nv6aseornitn" path="res://core/nodes/branches.gd" id="1_vk6ei"]
+
+[resource]
+script = ExtResource("1_vk6ei")
+metadata/_custom_type_script = "uid://nv6aseornitn"

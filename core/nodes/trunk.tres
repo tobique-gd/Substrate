@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TrunkGenerator" load_steps=2 format=3 uid="uid://b8hj4mxmj1pkq"]
+
+[ext_resource type="Script" uid="uid://dwaub715otcyx" path="res://core/nodes/trunk.gd" id="1_7kues"]
+
+[resource]
+script = ExtResource("1_7kues")
+metadata/_custom_type_script = "uid://dwaub715otcyx"

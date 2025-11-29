@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://brxe7i28yuxvm"]
+
+[ext_resource type="Script" uid="uid://dl6huw50h4htv" path="res://ui/customui/radio_button.gd" id="1_af4vr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhcq5"]
+bg_color = Color(0.0923971, 0.0923971, 0.092397, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.26, 0.26, 0.26, 0.329412)
+corner_radius_top_left = 6
+corner_radius_bottom_left = 6
+
+[node name="ToggleButton" type="Panel"]
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhcq5")
+script = ExtResource("1_af4vr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 35.0
+offset_bottom = 35.0
+expand_mode = 2

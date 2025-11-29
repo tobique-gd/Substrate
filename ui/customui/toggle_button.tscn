@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf4qqbm5eslp7"]
+
+[ext_resource type="Script" uid="uid://butxie3j7jfbb" path="res://ui/customui/toggle_button.gd" id="1_af4vr"]
+[ext_resource type="Texture2D" uid="uid://bwojjvjudxe72" path="res://assets/icons/grid/grid.png" id="1_aifrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttumb"]
+bg_color = Color(0.394986, 0.394987, 0.394987, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.26, 0.26, 0.26, 0.329412)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ToggleButton5" type="Panel"]
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ttumb")
+script = ExtResource("1_af4vr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 35.0
+offset_bottom = 35.0
+texture = ExtResource("1_aifrd")
+expand_mode = 2
