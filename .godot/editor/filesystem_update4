@@ -2,6 +2,7 @@ res://preview/tree_preview.tscn
 res://core/environments/default.tres
 res://assets/themes/ui_theme_dark.tres
 res://assets/shaders/checkerboard_background.gdshader
-res://ui/views_container.gd
-res://ui/texture_preview.gd
-res://core/texturing/texture_creator.gd
+res://ui/add_meshset_menu.gd
+res://preview/main.tscn
+res://ui/meshset_browser.gd
+res://ui/texture_properties_panel.gd
