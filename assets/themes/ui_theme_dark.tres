@@ -242,7 +242,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q663j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkp57"]
 bg_color = Color(0.0923971, 0.0923971, 0.092397, 1)
 border_width_left = 1
 border_width_top = 1
@@ -327,7 +327,7 @@ OptionButton/styles/hover = SubResource("StyleBoxFlat_kpmov")
 OptionButton/styles/hover_pressed = SubResource("StyleBoxFlat_7jmsm")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_r0lnw")
 OptionButton/styles/pressed = SubResource("StyleBoxFlat_u1ic5")
-Panel/styles/panel = SubResource("StyleBoxFlat_q663j")
+Panel/styles/panel = SubResource("StyleBoxFlat_bkp57")
 PopupMenu/font_sizes/font_size = 18
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_wf7v4")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_14mc6")

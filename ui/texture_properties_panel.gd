@@ -16,3 +16,9 @@ func update_meshset_list(m_meshsets:Array[Dictionary]):
 		meshset_list.add_item(meshset["item_name"], meshset["item_tex"])
 	
 	
+
+
+func _on_remove_meshset_button_pressed() -> void:
+	for meshset in meshset_list.get_selected_items():
+		meshset_list.remove_item(meshset)
+		meshsets.remove_at(meshset)
