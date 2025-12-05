@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dx7epc0uiwcnp"]
+[gd_scene load_steps=74 format=3 uid="uid://dx7epc0uiwcnp"]
 
 [ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_m1kmx"]
 [ext_resource type="Script" uid="uid://5l2ayhpk7xuc" path="res://preview/tree_renderer.gd" id="2_3xprf"]
@@ -30,9 +30,6 @@
 [ext_resource type="Script" uid="uid://uawyusucxydr" path="res://ui/inspector_panel.gd" id="28_yaspb"]
 [ext_resource type="Script" uid="uid://c2ll15w5a1mbj" path="res://ui/texture_properties_panel.gd" id="29_3xprf"]
 [ext_resource type="FontFile" uid="uid://cklkn6d1i0wpi" path="res://assets/fonts/Lato/Lato-Black.ttf" id="29_e4rdy"]
-[ext_resource type="Texture2D" uid="uid://b4sxtn0uh2pq7" path="res://assets/textures/grass_card_albedo.png" id="30_xtb44"]
-[ext_resource type="Texture2D" uid="uid://ba2wd40h7i2iw" path="res://assets/textures/grass.tga" id="31_64lrb"]
-[ext_resource type="Texture2D" uid="uid://b3ph5k5qi45el" path="res://assets/hdris/studio1.exr" id="32_ds5gc"]
 [ext_resource type="Script" uid="uid://thaoxs3l6x1g" path="res://ui/node_add_menu.gd" id="33_tsadi"]
 [ext_resource type="Script" uid="uid://bnmdw4hih2fbk" path="res://ui/new_material_menu.gd" id="34_jds5g"]
 [ext_resource type="Shader" uid="uid://bg8t55lu43u8r" path="res://assets/shaders/basic_shader.gdshader" id="35_gxkou"]
@@ -927,10 +924,11 @@ theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 12
 columns = 2
 
-[node name="TexturePropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("add_meshset_menu")]
+[node name="TexturePropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("add_meshset_menu", "meshset_list")]
 layout_mode = 2
 script = ExtResource("29_3xprf")
 add_meshset_menu = NodePath("../../../../AddMeshsetMenu")
+meshset_list = NodePath("Panel/TabContainer/Meshset settings/MarginContainer/MeshsetProperties/MeshsetList")
 
 [node name="Panel" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel"]
 layout_mode = 1
@@ -1002,19 +1000,12 @@ text = "Add Meshset"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ItemList" type="ItemList" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/MarginContainer/MeshsetProperties"]
+[node name="MeshsetList" type="ItemList" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/MarginContainer/MeshsetProperties"]
 layout_mode = 2
 select_mode = 1
 auto_width = true
 auto_height = true
-item_count = 3
 fixed_icon_size = Vector2i(100, 100)
-item_0/text = "Meshset 1"
-item_0/icon = ExtResource("30_xtb44")
-item_1/text = "Meshset 2"
-item_1/icon = ExtResource("31_64lrb")
-item_2/text = "Meshset 3"
-item_2/icon = ExtResource("32_ds5gc")
 
 [node name="NodeAddMenu" type="Control" parent="." node_paths=PackedStringArray("vbox", "node_list")]
 visible = false

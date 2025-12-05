@@ -1,8 +1,4 @@
-res://preview/tree_preview.tscn
-res://core/environments/default.tres
-res://assets/themes/ui_theme_dark.tres
-res://assets/shaders/checkerboard_background.gdshader
-res://ui/add_meshset_menu.gd
 res://preview/main.tscn
-res://ui/meshset_browser.gd
-res://ui/texture_properties_panel.gd
+res://assets/themes/ui_theme_dark.tres
+res://core/environments/default.tres
+res://assets/shaders/checkerboard_background.gdshader
