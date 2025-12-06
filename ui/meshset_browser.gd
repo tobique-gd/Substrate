@@ -2,17 +2,30 @@ extends ItemList
 
 @export var meshsets: Array[Dictionary]
 
+func update():
+	if not DirAccess.dir_exists_absolute(GlobalPaths.default_meshsets_path):
+		return
+	var meshsets_dir = DirAccess.open(GlobalPaths.default_meshsets_path)
+		
+	for file in meshsets_dir.get_files():
+		if file.get_extension() == "glb":
+			for meshset in meshsets:
+				if meshset["item_name"] == file.get_basename():
+					return
+			
+			add_meshset(GlobalPaths.default_meshsets_path + file)
+	
+	update_itemlist()
+
 func add_meshset(path: String):
 	var gltf_document = GLTFDocument.new()
 	var gltf_state = GLTFState.new()
 	var err = gltf_document.append_from_file(path, gltf_state)
 	if err != OK:
-		print("GLTF load error: %s" % err)
 		return
 
 	var root = gltf_document.generate_scene(gltf_state)
 	if root == null:
-		print("no gltf root")
 		return
 
 	var item_name = path.split("/")[-1].get_basename()
@@ -33,7 +46,7 @@ func add_meshset(path: String):
 		"item_tex": tex
 	})
 
-	update_itemlist()
+	
 
 func search_through_children(node):
 	for child in node.get_children():

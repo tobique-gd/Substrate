@@ -1,3 +1,10 @@
+CheckBox
+MarginContainer
+PanelContainer
+TextureRect
+Panel
+GridContainer
+VSplitContainer
 HBoxContainer
 Button
 FileDialog
@@ -5,10 +12,3 @@ MenuButton
 ItemList
 ColorRect
 Control
-HSeparator
-VBoxContainer
-TabBar
-TabContainer
-Label
-CSGBox3D
-Panel

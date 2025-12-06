@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br6b2dneose4f"
-path.s3tc="res://.godot/imported/pigeon_3_0.png-4ad49c13739dab5a965f54a9c3986974.s3tc.ctex"
+uid="uid://d11fwa70a0cvg"
+path.s3tc="res://.godot/imported/Grass Meshset 1_Foliage001_1K-PNG_Color.png-Foliage001_1K-PNG_Opacity.png-654c176e551c191e55b6ecfb2dbf6116.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "41e268a045402a866291c9521294d8dc"
+"md5": "b0495ed1dc8ae8e26d7fe4f0a51e3255"
 }
 
 [deps]
 
-source_file="res://pigeon_3_0.png"
-dest_files=["res://.godot/imported/pigeon_3_0.png-4ad49c13739dab5a965f54a9c3986974.s3tc.ctex"]
+source_file="res://core/defaults/meshsets/Grass Meshset 1_Foliage001_1K-PNG_Color.png-Foliage001_1K-PNG_Opacity.png"
+dest_files=["res://.godot/imported/Grass Meshset 1_Foliage001_1K-PNG_Color.png-Foliage001_1K-PNG_Opacity.png-654c176e551c191e55b6ecfb2dbf6116.s3tc.ctex"]
 
 [params]
 

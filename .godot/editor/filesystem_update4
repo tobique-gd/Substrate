@@ -2,3 +2,4 @@ res://preview/main.tscn
 res://assets/themes/ui_theme_dark.tres
 res://core/environments/default.tres
 res://assets/shaders/checkerboard_background.gdshader
+res://ui/meshset_browser.gd

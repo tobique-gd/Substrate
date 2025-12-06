@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://hohru51wrrcq"
-path="res://.godot/imported/Grass Meshset 1.glb-af0ceea5e0cb35dce77afa0bf804f15a.scn"
+path="res://.godot/imported/Grass Meshset 1.glb-60f2bc500b146d6e79adbf79d487e7d8.scn"
 
 [deps]
 
-source_file="res://core/meshsets/Grass Meshset 1.glb"
-dest_files=["res://.godot/imported/Grass Meshset 1.glb-af0ceea5e0cb35dce77afa0bf804f15a.scn"]
+source_file="res://core/defaults/meshsets/Grass Meshset 1.glb"
+dest_files=["res://.godot/imported/Grass Meshset 1.glb-60f2bc500b146d6e79adbf79d487e7d8.scn"]
 
 [params]
 

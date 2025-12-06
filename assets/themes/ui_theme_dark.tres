@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=36 format=3 uid="uid://p4b58dght06n"]
+[gd_resource type="Theme" load_steps=37 format=3 uid="uid://p4b58dght06n"]
 
 [ext_resource type="Texture2D" uid="uid://dpexmx5ujq8gf" path="res://assets/icons/hslider/grabber.png" id="1_5p0n6"]
 [ext_resource type="Texture2D" uid="uid://bo6fdq04betes" path="res://assets/icons/graph_node/port.png" id="1_sohes"]
@@ -49,6 +49,10 @@ expand_margin_left = 4.0
 expand_margin_top = 4.0
 expand_margin_right = 4.0
 expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xqs0"]
+content_margin_left = 2.0
+bg_color = Color(0.4074, 0.41412, 0.42, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lktte"]
 bg_color = Color(0.30711, 0.307115, 0.324302, 0.427451)
@@ -253,10 +257,6 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
-expand_margin_left = 8.0
-expand_margin_top = 8.0
-expand_margin_right = 8.0
-expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf7v4"]
 bg_color = Color(0.0923971, 0.0923971, 0.092397, 1)
@@ -293,6 +293,11 @@ Button/styles/hover = SubResource("StyleBoxFlat_5p0n6")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_8ps4n")
 Button/styles/normal = SubResource("StyleBoxFlat_sohes")
 Button/styles/pressed = SubResource("StyleBoxFlat_61c6n")
+CheckBox/styles/focus = null
+CheckBox/styles/hover = null
+CheckBox/styles/hover_pressed = null
+CheckBox/styles/normal = SubResource("StyleBoxFlat_1xqs0")
+CheckBox/styles/pressed = null
 GraphEdit/colors/grid_major = Color(1, 1, 1, 0.0509804)
 GraphEdit/colors/grid_minor = Color(1, 1, 1, 0)
 GraphEdit/styles/menu_panel = SubResource("StyleBoxFlat_lktte")
