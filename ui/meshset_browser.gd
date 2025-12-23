@@ -38,8 +38,8 @@ func add_meshset(path: String):
 		img.fill(Color.GRAY)
 		tex = ImageTexture.create_from_image(img)
 	
-	var model_array : Array[MeshInstance3D] = create_model_array(root, [])
-	
+	var model_array : Dictionary = create_model_array(root)
+
 	meshsets.append({
 		"item_name": item_name,
 		"item_models": model_array,
@@ -57,18 +57,31 @@ func search_through_children(node):
 				if mat is Material:
 					return mat.albedo_texture
 		else:
-			return search_through_children(child)
+			var result = search_through_children(child)
+			if result != null:
+				return result
+
 
 	return null
 
-func create_model_array(root, intermediate_array:Array[MeshInstance3D]):
-	for child in root.get_children():
-		if child is MeshInstance3D:
-			intermediate_array.append(child)
-		else:
-			create_model_array(child, intermediate_array)
+func create_model_array(root) -> Dictionary:
+	var model_dict : Dictionary = {}
+	_collect_meshes(root, model_dict, 0)
+	return model_dict
 
-	return intermediate_array
+
+func _collect_meshes(node, model_dict: Dictionary, index: int) -> int:
+	for child in node.get_children():
+		if child is MeshInstance3D:
+			model_dict[index] = {
+				"mesh": child,
+				"allowed": true
+			}
+			index += 1
+		else:
+			index = _collect_meshes(child, model_dict, index)
+	return index
+
 
 func update_itemlist():
 	clear()

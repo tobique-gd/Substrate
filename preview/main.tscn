@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://dx7epc0uiwcnp"]
+[gd_scene load_steps=120 format=3 uid="uid://dx7epc0uiwcnp"]
 
 [ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_m1kmx"]
 [ext_resource type="Script" uid="uid://5l2ayhpk7xuc" path="res://preview/tree_renderer.gd" id="2_3xprf"]
@@ -25,7 +25,6 @@
 [ext_resource type="Script" uid="uid://cdnv58ybkhk0p" path="res://ui/asset_browser_list.gd" id="23_30c5x"]
 [ext_resource type="Script" uid="uid://colv2882jcjxk" path="res://ui/texture_preview.gd" id="24_gjh70"]
 [ext_resource type="Shader" uid="uid://br3h7h0bvm8uk" path="res://assets/shaders/checkerboard_background.gdshader" id="25_yb0ag"]
-[ext_resource type="Texture2D" uid="uid://8iset3e5bolv" path="res://assets/textures/checkboard_pattern.jpg" id="26_exifx"]
 [ext_resource type="Script" uid="uid://c2vqih87nb4ny" path="res://core/texturing/texture_creator.gd" id="27_n7bmg"]
 [ext_resource type="Script" uid="uid://uawyusucxydr" path="res://ui/inspector_panel.gd" id="28_yaspb"]
 [ext_resource type="Script" uid="uid://c2ll15w5a1mbj" path="res://ui/texture_properties_panel.gd" id="29_3xprf"]
@@ -36,7 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://dpexmx5ujq8gf" path="res://assets/icons/hslider/grabber.png" id="32_i2dcp"]
 [ext_resource type="Script" uid="uid://thaoxs3l6x1g" path="res://ui/node_add_menu.gd" id="33_tsadi"]
 [ext_resource type="Script" uid="uid://bnmdw4hih2fbk" path="res://ui/new_material_menu.gd" id="34_jds5g"]
-[ext_resource type="Texture2D" uid="uid://ba2wd40h7i2iw" path="res://assets/textures/grass.tga" id="35_bkp57"]
 [ext_resource type="Shader" uid="uid://bg8t55lu43u8r" path="res://assets/shaders/basic_shader.gdshader" id="35_gxkou"]
 [ext_resource type="Script" uid="uid://b485q7ym7pqoe" path="res://ui/add_meshset_menu.gd" id="36_83idj"]
 [ext_resource type="Script" uid="uid://c4udjlq8y64gk" path="res://ui/meshset_browser.gd" id="37_apuvo"]
@@ -292,7 +290,6 @@ bg_color = Color(0.811777, 0.475482, 0.649166, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j11x1"]
 shader = ExtResource("25_yb0ag")
-shader_parameter/checker_texture = ExtResource("26_exifx")
 
 [sub_resource type="Sky" id="Sky_low3o"]
 sky_material = SubResource("ShaderMaterial_j11x1")
@@ -300,6 +297,8 @@ sky_material = SubResource("ShaderMaterial_j11x1")
 [sub_resource type="Environment" id="Environment_8t7j6"]
 background_mode = 2
 sky = SubResource("Sky_low3o")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="World3D" id="World3D_3nqck"]
 environment = SubResource("Environment_8t7j6")
@@ -726,18 +725,6 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ul7e"]
-bg_color = Color(0.0923971, 0.0923971, 0.092397, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.936265, 0.936265, 0.936265, 0.741176)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8we68"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nqck"]
@@ -840,7 +827,7 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="ViewsContainer" type="VSplitContainer" parent="MarginContainer" node_paths=PackedStringArray("node_editor", "asset_browser", "model_viewport", "texture_creation_viewport", "properties", "texture_properties")]
+[node name="ViewsContainer" type="VSplitContainer" parent="MarginContainer" node_paths=PackedStringArray("node_editor", "asset_browser", "model_viewport", "texture_editor_viewport", "properties", "texture_properties")]
 layout_mode = 2
 split_offset = 40
 dragging_enabled = false
@@ -849,7 +836,7 @@ script = ExtResource("3_i2dcp")
 node_editor = NodePath("HSplitContainer/VSplitContainer/NodeEditor")
 asset_browser = NodePath("HSplitContainer/VSplitContainer/AssetBrowser")
 model_viewport = NodePath("HSplitContainer/VSplitContainer/ModelViewport")
-texture_creation_viewport = NodePath("HSplitContainer/VSplitContainer/TexturePreview")
+texture_editor_viewport = NodePath("HSplitContainer/VSplitContainer/TexturePreview")
 properties = NodePath("HSplitContainer/PropertiesPanel")
 texture_properties = NodePath("HSplitContainer/TexturePropertiesPanel")
 
@@ -909,7 +896,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mw8t6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ebxbp")
 text = "Generating"
 
-[node name="TextureCreationTab" type="Button" parent="MarginContainer/ViewsContainer/MenuBar/HBoxContainer"]
+[node name="TextureEditorTab" type="Button" parent="MarginContainer/ViewsContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -919,7 +906,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mw8t6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8t7j6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mw8t6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ebxbp")
-text = "Texture Creation"
+text = "Texture Editor"
 
 [node name="TexturingTab" type="Button" parent="MarginContainer/ViewsContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
@@ -961,14 +948,15 @@ theme_override_constants/autohide = 1
 split_offset = 700
 
 [node name="ModelViewport" type="SubViewportContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer"]
+visible = false
 layout_mode = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport"]
 handle_input_locally = false
 msaa_3d = 2
-size = Vector2i(1400, 700)
-render_target_update_mode = 4
+size = Vector2i(2, 2)
+render_target_update_mode = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport"]
 environment = ExtResource("4_bkp57")
@@ -1229,6 +1217,7 @@ script = ExtResource("20_265t7")
 node_add_menu = NodePath("../../../../../NodeAddMenu")
 
 [node name="AssetBrowser" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer" node_paths=PackedStringArray("create_mat_menu")]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fchqj")
 script = ExtResource("21_rcjor")
@@ -1291,40 +1280,45 @@ fixed_icon_size = Vector2i(200, 200)
 script = ExtResource("23_30c5x")
 
 [node name="TexturePreview" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d6ba8")
 script = ExtResource("24_gjh70")
 
-[node name="TextureCreationViewport" type="AspectRatioContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/TextureCreationViewport"]
+[node name="TextureCreationViewport" type="AspectRatioContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/MarginContainer"]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/MarginContainer/TextureCreationViewport"]
 layout_mode = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/TextureCreationViewport/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/MarginContainer/TextureCreationViewport/SubViewportContainer"]
 own_world_3d = true
 world_3d = SubResource("World3D_3nqck")
 handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 0
+size = Vector2i(1012, 1012)
+render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/TextureCreationViewport/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.387)
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/MarginContainer/TextureCreationViewport/SubViewportContainer/SubViewport"]
 projection = 1
-size = 2.0
+near = 0.01
+far = 100.0
 
-[node name="TextureCreator" type="Node3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/TextureCreationViewport/SubViewportContainer/SubViewport"]
+[node name="TextureCreator" type="Node3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/MarginContainer/TextureCreationViewport/SubViewportContainer/SubViewport" node_paths=PackedStringArray("texture_properties_panel", "cam")]
 script = ExtResource("27_n7bmg")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/TextureCreationViewport/SubViewportContainer/SubViewport/TextureCreator"]
-size = Vector3(1, 1, 0.1)
+texture_properties_panel = NodePath("../../../../../../../TexturePropertiesPanel")
+cam = NodePath("../Camera3D")
 
 [node name="PropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("properties")]
 visible = false
@@ -1361,11 +1355,14 @@ theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 12
 columns = 2
 
-[node name="TexturePropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("add_meshset_menu", "meshset_list")]
+[node name="TexturePropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("add_meshset_menu", "meshset_list", "meshset_mesh_preview_container", "texture_creator_node", "properties")]
 layout_mode = 2
 script = ExtResource("29_3xprf")
 add_meshset_menu = NodePath("../../../../AddMeshsetMenu")
 meshset_list = NodePath("Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/MeshsetList")
+meshset_mesh_preview_container = NodePath("Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings/ScrollContainer/MeshPreviewsContainer")
+texture_creator_node = NodePath("../VSplitContainer/TexturePreview/MarginContainer/TextureCreationViewport/SubViewportContainer/SubViewport/TextureCreator")
+properties = NodePath("Panel/TabContainer/Texture Properties/MarginContainer/VBoxContainer/PropertiesContainer")
 
 [node name="Panel" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel"]
 layout_mode = 1
@@ -1385,14 +1382,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 0
 
 [node name="Texture Properties" type="TabBar" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Texture Properties"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Texture Properties/MarginContainer"]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Texture Properties/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Texture Properties/MarginContainer/VBoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Generate texture"
+
+[node name="PropertiesContainer" type="GridContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Texture Properties/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
 [node name="Meshset settings" type="TabBar" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -1487,42 +1512,14 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings"]
 layout_mode = 2
+horizontal_scroll_mode = 0
 
-[node name="Panel" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings/GridContainer"]
-custom_minimum_size = Vector2(120, 120)
+[node name="MeshPreviewsContainer" type="HFlowContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings/ScrollContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("1_m1kmx")
-theme_override_styles/panel = SubResource("StyleBoxFlat_1ul7e")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings/GridContainer/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings/GridContainer/Panel/MarginContainer"]
-custom_minimum_size = Vector2(112, 112)
-layout_mode = 2
-texture = ExtResource("35_bkp57")
-expand_mode = 2
-
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings/GridContainer/Panel"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -23.0
-offset_bottom = 24.0
-grow_horizontal = 0
-button_pressed = true
-button_mask = 0
-flat = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="NodeAddMenu" type="Control" parent="." node_paths=PackedStringArray("vbox", "node_list")]
 visible = false
@@ -1812,7 +1809,7 @@ filters = PackedStringArray("*.glb")
 use_native_dialog = true
 
 [connection signal="pressed" from="MarginContainer/ViewsContainer/MenuBar/HBoxContainer/GeneratingTab" to="MarginContainer/ViewsContainer" method="_on_generating_tab_pressed"]
-[connection signal="pressed" from="MarginContainer/ViewsContainer/MenuBar/HBoxContainer/TextureCreationTab" to="MarginContainer/ViewsContainer" method="_on_texture_creation_tab_pressed"]
+[connection signal="pressed" from="MarginContainer/ViewsContainer/MenuBar/HBoxContainer/TextureEditorTab" to="MarginContainer/ViewsContainer" method="_on_texture_creation_tab_pressed"]
 [connection signal="pressed" from="MarginContainer/ViewsContainer/MenuBar/HBoxContainer/TexturingTab" to="MarginContainer/ViewsContainer" method="_on_texturing_tab_pressed"]
 [connection signal="toggled" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/ViewportGUI/Top Panel/MarginContainer/HSplitContainer/Views/DrawingOptions" to="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/ViewportGUI/Top Panel" method="_on_drawing_options_toggled"]
 [connection signal="item_selected" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/ViewportGUI/RenderOptions/MarginContainer/VBoxContainer/OptionButton" to="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/ViewportGUI/Top Panel" method="_on_option_button_item_selected"]
@@ -1824,8 +1821,10 @@ use_native_dialog = true
 [connection signal="node_selected" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/NodeEditor" to="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/NodeEditor" method="_on_node_selected"]
 [connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/AssetBrowser/VSplitContainer/MarginContainer2/HBoxContainer/CreateMatButton" to="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/AssetBrowser" method="_on_create_mat_button_pressed"]
 [connection signal="item_clicked" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/AssetBrowser/VSplitContainer/MarginContainer/AssetBrowserList" to="." method="_on_asset_browser_list_item_clicked"]
+[connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Texture Properties/MarginContainer/VBoxContainer/BoxContainer/Button" to="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel" method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer/AddMeshsetButton" to="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel" method="_on_add_meshset_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer/RemoveMeshsetButton" to="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel" method="_on_remove_meshset_button_pressed"]
+[connection signal="item_selected" from="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/MeshsetList" to="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel" method="_on_meshset_list_item_selected"]
 [connection signal="item_clicked" from="NodeAddMenu/Panel/MarginContainer/VBoxContainer/NodeList" to="NodeAddMenu" method="_on_node_list_item_clicked"]
 [connection signal="pressed" from="NewMaterialMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="NewMaterialMenu" method="_on_cancel_pressed"]
 [connection signal="pressed" from="NewMaterialMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer/Create" to="NewMaterialMenu" method="_on_create_pressed"]

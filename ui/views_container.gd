@@ -3,7 +3,7 @@ extends VSplitContainer
 @export var node_editor: GraphEdit
 @export var asset_browser: Panel
 @export var model_viewport: SubViewportContainer
-@export var texture_creation_viewport: Panel
+@export var texture_editor_viewport: Panel
 @export var properties: Control
 @export var texture_properties: Control
 
@@ -11,7 +11,7 @@ var panels := {}
 var views := {
 	"generating": ["model_viewport", "node_editor", "properties"],
 	"texturing": ["model_viewport", "asset_browser"],
-	"texture_creation": ["texture_creation_viewport", "texture_properties"]
+	"texture_editing": ["texture_editor_viewport", "texture_properties"]
 }
 
 func _ready():
@@ -19,7 +19,7 @@ func _ready():
 		"node_editor": node_editor,
 		"asset_browser": asset_browser,
 		"model_viewport": model_viewport,
-		"texture_creation_viewport": texture_creation_viewport,
+		"texture_editor_viewport": texture_editor_viewport,
 		"properties": properties,
 		"texture_properties":texture_properties
 	}
@@ -37,4 +37,4 @@ func _on_texturing_tab_pressed():
 	update("texturing")
 
 func _on_texture_creation_tab_pressed():
-	update("texture_creation")
+	update("texture_editing")

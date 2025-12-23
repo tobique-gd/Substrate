@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 Shortcuts="*res://ui/shortcuts.gd"
 MaterialPreview="*res://preview/material_preview.gd"
+MeshsetPreview="*res://preview/meshset_preview.gd"
 GlobalPaths="*res://core/global_paths.gd"
 
 [debug_draw_3d]

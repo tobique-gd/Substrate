@@ -2,4 +2,9 @@ res://preview/main.tscn
 res://assets/themes/ui_theme_dark.tres
 res://core/environments/default.tres
 res://assets/shaders/checkerboard_background.gdshader
-res://ui/meshset_browser.gd
+res://core/texturing/texture_creator.gd
+res://ui/customui/meshset_mesh_entry.tscn
+res://ui/texture_properties_panel.gd
+res://ui/customui/vector3_component.tscn
+res://ui/customui/vector_3_component.gd
+res://ui/customui/parameter_slider.tscn

@@ -1,0 +1,140 @@
+[gd_scene load_steps=9 format=3 uid="uid://ty8d4fk6a286"]
+
+[ext_resource type="Script" uid="uid://drqho6f77toca" path="res://ui/customui/vector_3_component.gd" id="1_4o25b"]
+[ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_d54ox"]
+[ext_resource type="FontFile" uid="uid://bth88bcxtl24e" path="res://assets/fonts/Lato/Lato-Regular.ttf" id="2_4o25b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n52k7"]
+bg_color = Color(0.0295065, 0.0295066, 0.0295065, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.258824, 0.258824, 0.258824, 0.329412)
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_6omxo"]
+font_color = Color(0.914532, 0.460674, 0.39159, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o25b"]
+bg_color = Color(0.0295065, 0.0295066, 0.0295065, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.258824, 0.258824, 0.258824, 0.329412)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oop47"]
+font = ExtResource("2_4o25b")
+font_color = Color(0.531853, 0.669191, 0.316219, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mk84i"]
+font_color = Color(0.23511, 0.395849, 0.766825, 1)
+
+[node name="Vector3Component" type="Panel"]
+custom_minimum_size = Vector2(0, 36)
+offset_right = 245.0
+offset_bottom = 40.0
+theme = ExtResource("1_d54ox")
+script = ExtResource("1_4o25b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="VectorComponent" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponent"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n52k7")
+
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponent/Panel"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_d54ox")
+text = "X"
+label_settings = SubResource("LabelSettings_6omxo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_d54ox")
+text = "0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="VectorComponent2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponent2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4o25b")
+
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponent2/Panel"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_d54ox")
+text = "Y"
+label_settings = SubResource("LabelSettings_oop47")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponent2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_d54ox")
+text = "0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VectorComponent3" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponent3"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4o25b")
+
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponent3/Panel"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_d54ox")
+text = "Z"
+label_settings = SubResource("LabelSettings_mk84i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponent3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_d54ox")
+text = "0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
