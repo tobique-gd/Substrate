@@ -8,3 +8,5 @@ res://ui/texture_properties_panel.gd
 res://ui/customui/vector3_component.tscn
 res://ui/customui/vector_3_component.gd
 res://ui/customui/parameter_slider.tscn
+res://ui/customui/parameter_slider.gd
+res://ui/customui/meshset_mesh_entry.gd

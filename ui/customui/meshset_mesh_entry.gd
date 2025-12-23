@@ -13,6 +13,7 @@ signal panel_clicked(_uid, _selected)
 
 func _ready() -> void:
 	selected = check_box.button_pressed
+	
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	selected = toggled_on
@@ -21,6 +22,7 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 func update():
 	add_theme_stylebox_override("panel", selected_stylebox if selected else deselected_stylebox)
 	panel_clicked.emit(uid, selected)
+	check_box.button_pressed = selected
 	
 
 func _on_gui_input(event: InputEvent) -> void:

@@ -30,7 +30,8 @@ func update_meshset_list(m_meshsets:Array[Dictionary]):
 	meshsets.append_array(m_meshsets)
 	for meshset in m_meshsets:
 		meshset_list.add_item(meshset["item_name"], meshset["item_tex"])
-
+	
+	update_texture()
 
 func _on_remove_meshset_button_pressed() -> void:
 	var selected := meshset_list.get_selected_items()
@@ -40,7 +41,15 @@ func _on_remove_meshset_button_pressed() -> void:
 		meshsets.remove_at(index)
 		meshset_list.remove_item(index)
 	
+	if meshset_list.item_count == 0:
+		update_texture()
+		clear()
+		clear_add()
+		delete_meshset_previews()
+		return
+	
 	delete_meshset_previews()
+	update_texture()
 		
 		
 
@@ -81,6 +90,11 @@ func _on_meshset_list_item_selected(index: int) -> void:
 		meshset_mesh_preview_container.add_child(entry)
 		entry.panel_clicked.connect(_on_panel_clicked.bind())
 		entry.uid = uid
+		
+		
+		entry.selected = current_meshset["item_models"][uid]["allowed"]
+		entry.update()
+		
 		entry.update_image_texture(tex)
 
 
@@ -92,13 +106,13 @@ func _on_panel_clicked(uid: int, selected: bool) -> void:
 		return
 	current_meshset["item_models"][uid]["allowed"] = selected
 	
+	update_texture()
 
-func _on_button_pressed() -> void:
+func update_texture():
 	emit_signal("generate_texture", meshsets)
 	
 	clear()
 	build_ui(get_texture_parameters_from_node(texture_creator_node))
-
 
 
 

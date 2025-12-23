@@ -71,9 +71,10 @@ func _on_generate_texture(meshset_data: Array[Dictionary]) -> void:
 	if first:
 		return
 	
-	cam.size = combined_aabb.size.y * texture_parameters["padding"].value
-	var center = combined_aabb.position + combined_aabb.size * 0.5
-	cam.global_position = Vector3(0, center.y, 5)
+	if combined_aabb.size.y * texture_parameters["padding"].value > 0.0001:
+		cam.size = combined_aabb.size.y * texture_parameters["padding"].value
+		var center = combined_aabb.position + combined_aabb.size * 0.5
+		cam.global_position = Vector3(0, center.y, 5)
 
 
 func get_instance_transform(id):
