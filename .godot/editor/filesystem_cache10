@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1766480690
+::res://::1766660844
 icon.svg::CompressedTexture2D/CompressedTexture2D::2978628408320861688::1763720756::1764414419::1::::<><><>0<>0<>9626fa499493a08df3af293e109122fc<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile/TextFile::-1::1764413993::0::1::::<><><>0<>0<><>::
 ::res://addons/::1763993545
@@ -44,9 +44,9 @@ Plant Material 1.tres::ShaderMaterial/ShaderMaterial::4844079679799104359::17643
 ::res://assets/models/::1763811697
 ::res://assets/models/grid/::1764414210
 grid.obj::Mesh/Mesh::4644536664673478281::1763811832::1764414210::1::::<><><>0<>0<>7de248379a91d587e67eeb351fb15039<>res://.godot/imported/grid.obj-a9d8cebdb8464a3e289d6157c5a26634.mesh<*>res://.godot/imported/grid.obj-a9d8cebdb8464a3e289d6157c5a26634.mesh::
-::res://assets/shaders/::1766485245
+::res://assets/shaders/::1766586102
 basic_shader.gdshader::Shader/Shader::2876887001726917555::1764325950::0::1::::<><><>0<>0<><>::
-checkerboard_background.gdshader::Shader::3637916173365217606::1766485671::0::1::::<><><>0<>0<><>::
+checkerboard_background.gdshader::Shader::3637916173365217606::1766586102::0::1::::<><><>0<>0<><>::
 plant.gdshader::Shader/Shader::6715814761119293870::1764340223::0::1::::<><><>0<>0<><>::
 ::res://assets/textures/::1764425745
 checkboard_pattern.jpg::CompressedTexture2D/CompressedTexture2D::2333847952553026859::1764425733::1764425745::1::::<><><>0<>0<>007937195a951c252858f50b349f7686<>res://.godot/imported/checkboard_pattern.jpg-0549ea60fab806b88ec5602a9a3ff329.s3tc.ctex::
@@ -56,8 +56,8 @@ grass_card_albedo.png::CompressedTexture2D/CompressedTexture2D::4460487092029742
 grass_card_emit.png::CompressedTexture2D/CompressedTexture2D::5096106252778021702::1764238922::1764414210::1::::<><><>0<>0<>0c1a123401a085a301b2b516323c4e73<>res://.godot/imported/grass_card_emit.png-a9de68b870fb0c659d034c66b0d86ddd.s3tc.ctex::
 grass_card_normal.png::CompressedTexture2D/CompressedTexture2D::3353824765659300918::1764238922::1764414210::1::::<><><>0<>0<>b973efa701951fd68dc765453c9952e1<>res://.godot/imported/grass_card_normal.png-ee3ff8f74cc7587bffbb30bd88589c38.s3tc.ctex::
 grass_card_normal_map.exr::CompressedTexture2D/CompressedTexture2D::2154178362944519648::1764239148::1764414210::1::::<><><>0<>0<>fee03af193bdf202549ec994db57328a<>res://.godot/imported/grass_card_normal_map.exr-637d6a54a9985e5de03ae47b50001dd3.bptc.ctex::
-::res://assets/themes/::1766481459
-ui_theme_dark.tres::Theme::1112815638435844247::1766481459::0::1::::<><><>0<>0<><>::uid://dpexmx5ujq8gf::::res://assets/icons/hslider/grabber.png<>uid://bo6fdq04betes::::res://assets/icons/graph_node/port.png<>uid://bth88bcxtl24e::::res://assets/fonts/Lato/Lato-Regular.ttf
+::res://assets/themes/::1766568365
+ui_theme_dark.tres::Theme::1112815638435844247::1766568365::0::1::::<><><>0<>0<><>::uid://dpexmx5ujq8gf::::res://assets/icons/hslider/grabber.png<>uid://bo6fdq04betes::::res://assets/icons/graph_node/port.png<>uid://bth88bcxtl24e::::res://assets/fonts/Lato/Lato-Regular.ttf
 ::res://core/::1764929731
 global_paths.gd::GDScript/GDScript::9071030763133179657::1764929731::0::1::::<>Node<><>0<>0<><>::
 ::res://core/defaults/::1764928276
@@ -68,8 +68,8 @@ Grass Meshset 1_Foliage001_1K-PNG_Roughness.png::CompressedTexture2D/CompressedT
 Grass Meshset 2.glb::PackedScene/PackedScene::7990391505348673672::1766264437::1766264439::1::::<><><>0<>0<>6fe7bb3b2547f9c67dab1de0c918e62c<>res://.godot/imported/Grass Meshset 2.glb-eb211dc1d76678c8c307a8422ec16895.scn::uid://bf1jjw308824x::::res://core/defaults/meshsets/Grass Meshset 2_Foliage001_1K-PNG_Roughness.png-Foliage001_1K-PNG_Opacity.png<>uid://djd01eb0pt1r::::res://core/defaults/meshsets/Grass Meshset 2_Foliage001_1K-PNG_Roughness.png
 Grass Meshset 2_Foliage001_1K-PNG_Roughness.png::CompressedTexture2D/CompressedTexture2D::229374098392334585::1766264439::1766264439::1::::<><><>0<>0<>10aa7e018f4a879f1a020c7d2e9d0e23<>res://.godot/imported/Grass Meshset 2_Foliage001_1K-PNG_Roughness.png-05c4d04a516964e7d3b9edc0f57d7949.s3tc.ctex::
 Grass Meshset 2_Foliage001_1K-PNG_Roughness.png-Foliage001_1K-PNG_Opacity.png::CompressedTexture2D/CompressedTexture2D::2791602448518400149::1766264439::1766264439::1::::<><><>0<>0<>0e7d5c2d28386647daae2bb89ea2d476<>res://.godot/imported/Grass Meshset 2_Foliage001_1K-PNG_Roughness.png-Foliage001_1K-PNG_Opacity.png-870f24b0c67c95cca9d403b20e68656c.s3tc.ctex::
-::res://core/environments/::1766481459
-default.tres::Environment::4062334557516170822::1766481459::0::1::::<><><>0<>0<><>::
+::res://core/environments/::1766568365
+default.tres::Environment::4062334557516170822::1766568365::0::1::::<><><>0<>0<><>::
 grass_field1.tres::Environment/Environment::4984272898884543170::1764006455::0::1::::<><><>0<>0<><>::uid://r0yfy4e7uo2g::::res://assets/hdris/grass_field1.exr
 hill1.tres::Environment/Environment::1030456360930424215::1764006442::0::1::::<><><>0<>0<><>::uid://lvksnrnsjesg::::res://assets/hdris/hill1.exr
 sky1.tres::Environment/Environment::7146246921427961913::1764006446::0::1::::<><><>0<>0<><>::uid://dfxv3f0odrcov::::res://assets/hdris/sky1.exr
@@ -83,16 +83,16 @@ plant.gd::GDScript/GDScript::33232281681242062::1764414681::0::1::::PlantGenerat
 plant.tres::Resource/PlantGenerator::26760294202386762::1764056290::0::1::::<><><>0<>0<><>::uid://qdlioyanhf7::::res://core/nodes/plant.gd
 trunk.gd::GDScript/GDScript::8704634459059890567::1764095447::0::1::::TrunkGenerator<>TreeGenerator<><>0<>0<><>::
 trunk.tres::Resource/TrunkGenerator::4717702075353723328::1764056064::0::1::::<><><>0<>0<><>::uid://dwaub715otcyx::::res://core/nodes/trunk.gd
-::res://core/texturing/::1766484267
-texture_creator.gd::GDScript::6712278256797210334::1766484267::0::1::::<>Node3D<><>0<>0<><>::
-::res://preview/::1766485245
+::res://core/texturing/::1766525758
+texture_creator.gd::GDScript/GDScript::6712278256797210334::1766525758::0::1::::<>Node3D<><>0<>0<><>::
+::res://preview/::1766578666
 cam_pivot.gd::GDScript/GDScript::5976071425475809532::1764080538::0::1::::<>SpringArm3D<><>0<>0<><>::
 grid_renderer.gd::GDScript/GDScript::6240555775346285789::1764414552::0::1::::<>Node3D<><>0<>0<><>::
-main.tscn::PackedScene::8839935342350677441::1766485245::0::1::::<><><>0<>0<><>::uid://p4b58dght06n::::res://assets/themes/ui_theme_dark.tres<>uid://5l2ayhpk7xuc::::res://preview/tree_renderer.gd<>uid://debbsim5vun5q::::res://ui/views_container.gd<>uid://bx43b6qqqd4yk::::res://core/environments/default.tres<>uid://cu58bonnq1soj::::res://preview/grid_renderer.gd<>uid://cre4a15kxgyq3::::res://preview/cam_pivot.gd<>uid://3y7bbsd2iepg::::res://ui/top_panel.gd<>uid://brxe7i28yuxvm::::res://ui/customui/radio_button.tscn<>uid://c3heen86asyry::::res://assets/icons/views/wireframe.png<>uid://d3pyxni37r7cm::::res://assets/icons/views/solid.png<>uid://wwa2hpj7h3y2::::res://assets/icons/views/rendered.png<>uid://b1qhkj3lgdwss::::res://assets/icons/views/dropdown.png<>uid://bf4qqbm5eslp7::::res://ui/customui/toggle_button.tscn<>uid://bwojjvjudxe72::::res://assets/icons/grid/grid.png<>uid://bth88bcxtl24e::::res://assets/fonts/Lato/Lato-Regular.ttf<>uid://dndebvwdkam8b::::res://ui/customui/rounded_texture_rect.tscn<>uid://dxpr8lcogd0pv::::res://ui/shaders/rounded_corners.gdshader<>uid://r0yfy4e7uo2g::::res://assets/hdris/grass_field1.exr<>uid://dca76iu615c1o::::res://ui/environments_menu.gd<>uid://dfun5po8elpwg::::res://ui/node_editor.gd<>uid://be3x7ibb1vrlg::::res://ui/asset_browser.gd<>uid://p8bxh5sh2l5d::::res://assets/fonts/Lato/Lato-Bold.ttf<>uid://cdnv58ybkhk0p::::res://ui/asset_browser_list.gd<>uid://colv2882jcjxk::::res://ui/texture_preview.gd<>uid://br3h7h0bvm8uk::::res://assets/shaders/checkerboard_background.gdshader<>uid://c2vqih87nb4ny::::res://core/texturing/texture_creator.gd<>uid://uawyusucxydr::::res://ui/inspector_panel.gd<>uid://c2ll15w5a1mbj::::res://ui/texture_properties_panel.gd<>uid://cklkn6d1i0wpi::::res://assets/fonts/Lato/Lato-Black.ttf<>uid://bo6fdq04betes::::res://assets/icons/graph_node/port.png<>uid://c7y87uva8jgpj::::res://assets/icons/buttons/plus.png<>uid://ce3lpylhvvgoc::::res://assets/icons/buttons/minus.png<>uid://dpexmx5ujq8gf::::res://assets/icons/hslider/grabber.png<>uid://thaoxs3l6x1g::::res://ui/node_add_menu.gd<>uid://bnmdw4hih2fbk::::res://ui/new_material_menu.gd<>uid://bg8t55lu43u8r::::res://assets/shaders/basic_shader.gdshader<>uid://b485q7ym7pqoe::::res://ui/add_meshset_menu.gd<>uid://c4udjlq8y64gk::::res://ui/meshset_browser.gd
+main.tscn::PackedScene::8839935342350677441::1766578666::0::1::::<><><>0<>0<><>::uid://p4b58dght06n::::res://assets/themes/ui_theme_dark.tres<>uid://5l2ayhpk7xuc::::res://preview/tree_renderer.gd<>uid://debbsim5vun5q::::res://ui/views_container.gd<>uid://bx43b6qqqd4yk::::res://core/environments/default.tres<>uid://cu58bonnq1soj::::res://preview/grid_renderer.gd<>uid://cre4a15kxgyq3::::res://preview/cam_pivot.gd<>uid://3y7bbsd2iepg::::res://ui/top_panel.gd<>uid://brxe7i28yuxvm::::res://ui/customui/radio_button.tscn<>uid://c3heen86asyry::::res://assets/icons/views/wireframe.png<>uid://d3pyxni37r7cm::::res://assets/icons/views/solid.png<>uid://wwa2hpj7h3y2::::res://assets/icons/views/rendered.png<>uid://b1qhkj3lgdwss::::res://assets/icons/views/dropdown.png<>uid://bf4qqbm5eslp7::::res://ui/customui/toggle_button.tscn<>uid://bwojjvjudxe72::::res://assets/icons/grid/grid.png<>uid://bth88bcxtl24e::::res://assets/fonts/Lato/Lato-Regular.ttf<>uid://dndebvwdkam8b::::res://ui/customui/rounded_texture_rect.tscn<>uid://dxpr8lcogd0pv::::res://ui/shaders/rounded_corners.gdshader<>uid://r0yfy4e7uo2g::::res://assets/hdris/grass_field1.exr<>uid://dca76iu615c1o::::res://ui/environments_menu.gd<>uid://dfun5po8elpwg::::res://ui/node_editor.gd<>uid://be3x7ibb1vrlg::::res://ui/asset_browser.gd<>uid://p8bxh5sh2l5d::::res://assets/fonts/Lato/Lato-Bold.ttf<>uid://cdnv58ybkhk0p::::res://ui/asset_browser_list.gd<>uid://colv2882jcjxk::::res://ui/texture_preview.gd<>uid://br3h7h0bvm8uk::::res://assets/shaders/checkerboard_background.gdshader<>uid://c2vqih87nb4ny::::res://core/texturing/texture_creator.gd<>uid://uawyusucxydr::::res://ui/inspector_panel.gd<>uid://c2ll15w5a1mbj::::res://ui/texture_properties_panel.gd<>uid://cklkn6d1i0wpi::::res://assets/fonts/Lato/Lato-Black.ttf<>uid://bo6fdq04betes::::res://assets/icons/graph_node/port.png<>uid://c7y87uva8jgpj::::res://assets/icons/buttons/plus.png<>uid://ce3lpylhvvgoc::::res://assets/icons/buttons/minus.png<>uid://dpexmx5ujq8gf::::res://assets/icons/hslider/grabber.png<>uid://thaoxs3l6x1g::::res://ui/node_add_menu.gd<>uid://bnmdw4hih2fbk::::res://ui/new_material_menu.gd<>uid://bg8t55lu43u8r::::res://assets/shaders/basic_shader.gdshader<>uid://b485q7ym7pqoe::::res://ui/add_meshset_menu.gd<>uid://c4udjlq8y64gk::::res://ui/meshset_browser.gd
 material_preview.gd::GDScript/GDScript::1262277901418100439::1766248906::0::1::::<>Node<><>0<>0<><>::
 meshset_preview.gd::GDScript/GDScript::2175239361668748858::1766268352::0::1::::<>Node<><>0<>0<><>::
 tree_renderer.gd::GDScript/GDScript::2130014095310537670::1764414673::0::1::::<>Control<><>0<>0<><>::
-::res://ui/::1766485245
+::res://ui/::1766586102
 add_meshset_menu.gd::GDScript/GDScript::4491873415976592024::1766264722::0::1::::<>Control<><>0<>0<><>::
 asset_browser.gd::GDScript/GDScript::2726432693410120808::1764328001::0::1::::<>Panel<><>0<>0<><>::
 asset_browser_list.gd::GDScript/GDScript::5011575210173266049::1764414517::0::1::::<>ItemList<><>0<>0<><>::
@@ -105,22 +105,24 @@ node_editor.gd::GDScript/GDScript::7552337530056450278::1764414620::0::1::::<>Gr
 render_options.gd::GDScript/GDScript::5684482354274128385::1764003837::0::1::::<>Panel<><>0<>0<><>::
 shortcuts.gd::GDScript/GDScript::1324287892955741967::1764253774::0::1::::<>Node<><>0<>0<><>::
 texture_preview.gd::GDScript/GDScript::5779518392384814716::1764444266::0::1::::<>Panel<><>0<>0<><>::
-texture_properties_panel.gd::GDScript::6691364229519992427::1766485245::0::1::::<>Control<><>0<>0<><>::
+texture_properties_panel.gd::GDScript::6691364229519992427::1766586102::0::1::::<>Control<><>0<>0<><>::
 top_panel.gd::GDScript/GDScript::2016777498027309668::1764414630::0::1::::<>Panel<><>0<>0<><>::
 views_container.gd::GDScript/GDScript::7442175104784929136::1766248791::0::1::::<>VSplitContainer<><>0<>0<><>::
-::res://ui/customui/::1766485245
-meshset_mesh_entry.gd::GDScript/GDScript::2419709481738276271::1766262186::0::1::::<>Panel<><>0<>0<><>::
-meshset_mesh_entry.tscn::PackedScene::8647728743349407864::1766485273::0::1::::<><><>0<>0<><>::uid://p4b58dght06n::::res://assets/themes/ui_theme_dark.tres<>uid://baqei5prjxiv4::::res://ui/customui/meshset_mesh_entry.gd
-parameter_slider.gd::GDScript/GDScript::8702499701301801390::1764414770::0::1::::<>ProgressBar<><>0<>0<><>::
-parameter_slider.tscn::PackedScene/PackedScene::8777815033178389698::1764327908::0::1::::<><><>0<>0<><>::uid://p4b58dght06n::::res://assets/themes/ui_theme_dark.tres<>uid://dv8s5s2yyjd55::::res://ui/customui/parameter_slider.gd
+::res://ui/customui/::1766578666
+meshset_mesh_entry.gd::GDScript/GDScript::2419709481738276271::1766526412::0::1::::<>Panel<><>0<>0<><>::
+meshset_mesh_entry.tscn::PackedScene::8647728743349407864::1766578666::0::1::::<><><>0<>0<><>::uid://p4b58dght06n::::res://assets/themes/ui_theme_dark.tres<>uid://baqei5prjxiv4::::res://ui/customui/meshset_mesh_entry.gd
+parameter_slider.gd::GDScript/GDScript::8702499701301801390::1766525687::0::1::::<>ProgressBar<><>0<>0<><>::
+parameter_slider.tscn::PackedScene::8777815033178389698::1766578666::0::1::::<><><>0<>0<><>::uid://p4b58dght06n::::res://assets/themes/ui_theme_dark.tres<>uid://dv8s5s2yyjd55::::res://ui/customui/parameter_slider.gd
 radio_button.gd::GDScript/GDScript::7995796979305199791::1763987783::0::1::::RadioButton<>Panel<><>0<>1<><>::
 radio_button.tscn::PackedScene/PackedScene::3627412190687823794::1764327908::0::1::::<><><>0<>0<><>::uid://dl6huw50h4htv::::res://ui/customui/radio_button.gd
-vecto3_component.tscn::PackedScene::1385143644760047197::1766485671::0::1::::<><><>0<>0<><>::uid://p4b58dght06n::::res://assets/themes/ui_theme_dark.tres<>uid://bth88bcxtl24e::::res://assets/fonts/Lato/Lato-Regular.ttf
 rounded_texture_rect.tscn::PackedScene/PackedScene::8078155942526609043::1764327908::0::1::::<><><>0<>0<><>::uid://dxpr8lcogd0pv::::res://ui/shaders/rounded_corners.gdshader<>uid://dfxv3f0odrcov::::res://assets/hdris/sky1.exr
 rounded_texture_rect_button.tscn::PackedScene/PackedScene::3280952271751078506::1764327908::0::1::::<><><>0<>0<><>::uid://dxpr8lcogd0pv::::res://ui/shaders/rounded_corners.gdshader<>uid://dfxv3f0odrcov::::res://assets/hdris/sky1.exr<>uid://ubsilh32shdi::::res://ui/customui/texture_button.gd
 texture_button.gd::GDScript/GDScript::1406949032615214090::1764007302::0::1::::CustomTextureButton<>TextureRect<><>0<>0<><>::
 toggle_button.gd::GDScript/GDScript::3830831764765717663::1764093479::0::1::::ToggleButton<>Panel<><>0<>1<><>::
 toggle_button.tscn::PackedScene/PackedScene::2798231973767870170::1764327908::0::1::::<><><>0<>0<><>::uid://butxie3j7jfbb::::res://ui/customui/toggle_button.gd<>uid://bwojjvjudxe72::::res://assets/icons/grid/grid.png
+vector3_component.tscn::PackedScene::1385143644760047197::1766578666::0::1::::<><><>0<>0<><>::uid://drqho6f77toca::::res://ui/customui/vector_3_component.gd<>uid://p4b58dght06n::::res://assets/themes/ui_theme_dark.tres<>uid://bth88bcxtl24e::::res://assets/fonts/Lato/Lato-Regular.ttf<>uid://bpw4schaasrqy::::res://ui/customui/vector_component.gd
+vector_3_component.gd::GDScript::8385954094500179796::1766576387::0::1::::<>Panel<><>0<>0<><>::
+vector_component.gd::GDScript::3486462701794476364::1766577586::0::1::::<>HBoxContainer<><>0<>0<><>::
 ::res://ui/nodes/::1764011667
 generator_node.gd::GDScript/GDScript::2152545199538124045::1764011667::0::1::::GeneratorNode<>GraphNode<><>0<>0<><>::
 ::res://ui/shaders/::1764340223

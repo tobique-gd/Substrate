@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ty8d4fk6a286"]
+[gd_scene load_steps=10 format=3 uid="uid://ty8d4fk6a286"]
 
 [ext_resource type="Script" uid="uid://drqho6f77toca" path="res://ui/customui/vector_3_component.gd" id="1_4o25b"]
 [ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_d54ox"]
 [ext_resource type="FontFile" uid="uid://bth88bcxtl24e" path="res://assets/fonts/Lato/Lato-Regular.ttf" id="2_4o25b"]
+[ext_resource type="Script" uid="uid://bpw4schaasrqy" path="res://ui/customui/vector_component.gd" id="3_n52k7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n52k7"]
 bg_color = Color(0.0295065, 0.0295066, 0.0295065, 1)
@@ -31,7 +32,7 @@ font_color = Color(0.23511, 0.395849, 0.766825, 1)
 
 [node name="Vector3Component" type="Panel"]
 custom_minimum_size = Vector2(0, 36)
-offset_right = 245.0
+offset_right = 191.0
 offset_bottom = 40.0
 theme = ExtResource("1_d54ox")
 script = ExtResource("1_4o25b")
@@ -45,18 +46,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="VectorComponent" type="HBoxContainer" parent="HBoxContainer"]
+[node name="VectorComponentX" type="HBoxContainer" parent="HBoxContainer" node_paths=PackedStringArray("displayed_text", "displayed_text_edit")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
+script = ExtResource("3_n52k7")
+displayed_text = NodePath("Label")
+displayed_text_edit = NodePath("LineEdit")
 
-[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponent"]
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponentX"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_n52k7")
 
-[node name="Label" type="Label" parent="HBoxContainer/VectorComponent/Panel"]
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponentX/Panel"]
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_d54ox")
@@ -65,7 +69,7 @@ label_settings = SubResource("LabelSettings_6omxo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/VectorComponent"]
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponentX"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -77,18 +81,30 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="VectorComponent2" type="HBoxContainer" parent="HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VectorComponentX"]
+visible = false
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/minimum_character_width = 0
+alignment = 1
+select_all_on_focus = true
+
+[node name="VectorComponentY" type="HBoxContainer" parent="HBoxContainer" node_paths=PackedStringArray("displayed_text", "displayed_text_edit")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
+script = ExtResource("3_n52k7")
+displayed_text = NodePath("Label")
+displayed_text_edit = NodePath("LineEdit")
 
-[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponent2"]
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponentY"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4o25b")
 
-[node name="Label" type="Label" parent="HBoxContainer/VectorComponent2/Panel"]
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponentY/Panel"]
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_d54ox")
@@ -97,7 +113,7 @@ label_settings = SubResource("LabelSettings_oop47")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/VectorComponent2"]
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponentY"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -108,18 +124,30 @@ text = "0.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VectorComponent3" type="HBoxContainer" parent="HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VectorComponentY"]
+visible = false
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/minimum_character_width = 0
+alignment = 1
+select_all_on_focus = true
+
+[node name="VectorComponentZ" type="HBoxContainer" parent="HBoxContainer" node_paths=PackedStringArray("displayed_text", "displayed_text_edit")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
+script = ExtResource("3_n52k7")
+displayed_text = NodePath("Label")
+displayed_text_edit = NodePath("LineEdit")
 
-[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponent3"]
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/VectorComponentZ"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4o25b")
 
-[node name="Label" type="Label" parent="HBoxContainer/VectorComponent3/Panel"]
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponentZ/Panel"]
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_d54ox")
@@ -128,7 +156,7 @@ label_settings = SubResource("LabelSettings_mk84i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/VectorComponent3"]
+[node name="Label" type="Label" parent="HBoxContainer/VectorComponentZ"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -138,3 +166,12 @@ theme = ExtResource("1_d54ox")
 text = "0.0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VectorComponentZ"]
+visible = false
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/minimum_character_width = 0
+alignment = 1
+select_all_on_focus = true

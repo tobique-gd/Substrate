@@ -175,6 +175,8 @@ func _on_slider_changed(value, param):
 	texture_creator_node.texture_parameters = original_params
 	emit_signal("generate_texture", meshsets)
 
+
+
 func get_properties():
 	return original_params
 
