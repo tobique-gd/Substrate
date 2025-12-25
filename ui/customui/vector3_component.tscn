@@ -30,12 +30,13 @@ font_color = Color(0.531853, 0.669191, 0.316219, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_mk84i"]
 font_color = Color(0.23511, 0.395849, 0.766825, 1)
 
-[node name="Vector3Component" type="Panel"]
+[node name="Vector3Component" type="Panel" node_paths=PackedStringArray("vector_components")]
 custom_minimum_size = Vector2(0, 36)
 offset_right = 191.0
 offset_bottom = 40.0
 theme = ExtResource("1_d54ox")
 script = ExtResource("1_4o25b")
+vector_components = [NodePath("HBoxContainer/VectorComponentX"), NodePath("HBoxContainer/VectorComponentY"), NodePath("HBoxContainer/VectorComponentZ")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

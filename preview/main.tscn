@@ -1,7 +1,7 @@
 [gd_scene load_steps=120 format=3 uid="uid://dx7epc0uiwcnp"]
 
 [ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_m1kmx"]
-[ext_resource type="Script" uid="uid://5l2ayhpk7xuc" path="res://preview/tree_renderer.gd" id="2_3xprf"]
+[ext_resource type="Script" uid="uid://5l2ayhpk7xuc" path="res://preview/renderer.gd" id="2_3xprf"]
 [ext_resource type="Script" uid="uid://debbsim5vun5q" path="res://ui/views_container.gd" id="3_i2dcp"]
 [ext_resource type="Environment" uid="uid://bx43b6qqqd4yk" path="res://core/environments/default.tres" id="4_bkp57"]
 [ext_resource type="Script" uid="uid://cu58bonnq1soj" path="res://preview/grid_renderer.gd" id="5_vsalf"]
@@ -789,7 +789,7 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="TreeRenderer" type="Control" node_paths=PackedStringArray("inspector_panel", "node_editor", "mesh_instance", "asset_browser_list", "model_viewport")]
+[node name="Renderer" type="Control" node_paths=PackedStringArray("inspector_panel", "node_editor", "mesh_instance", "asset_browser_list", "model_viewport")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

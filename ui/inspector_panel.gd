@@ -42,7 +42,7 @@ func build_ui(params, node):
 		properties.add_child(slider)
 		
 		if params[param]["type"] == "float":
-			slider.step = (params[param]["max"] - params[param]["min"]) / 1000.0
+			slider.step = 0.001
 		if params[param]["type"] == "int":
 			slider.step = 1
 

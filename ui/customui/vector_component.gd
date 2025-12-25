@@ -1,11 +1,12 @@
 extends HBoxContainer
+class_name VectorComponent
 
 @export var displayed_text : Label
 @export var displayed_text_edit : LineEdit
 @export var sensitivity := 0.01
 @export var min_value := -INF
 @export var max_value := INF
-@export var step := 0.01
+@export var step := 0.001
 
 var value := 0.0
 var _click_time := 0.0
@@ -13,6 +14,9 @@ var _double_time := 0.25
 var _dragging := false
 var _accumulated_value := 0.0
 var _og_mouse_pos := Vector2()
+var vector_index
+
+signal value_changed(value, component_index)
 
 func _ready() -> void:
 	_update_text()
@@ -68,3 +72,4 @@ func _exit_edit() -> void:
 func _update_text() -> void:
 	displayed_text.text = str(value)
 	displayed_text_edit.text = str(value)
+	emit_signal("value_changed", value, vector_index)

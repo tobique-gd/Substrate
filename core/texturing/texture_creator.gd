@@ -72,10 +72,11 @@ func _on_generate_texture(meshset_data: Array[Dictionary]) -> void:
 		return
 	
 	if combined_aabb.size.y * texture_parameters["padding"].value > 0.0001:
-		cam.size = combined_aabb.size.y * texture_parameters["padding"].value
+		cam.size = max(combined_aabb.size.y, combined_aabb.size.x) * texture_parameters["padding"].value
 		var center = combined_aabb.position + combined_aabb.size * 0.5
-		cam.global_position = Vector3(0, center.y, 5)
-
+		cam.global_position = Vector3(center.x, center.y, 5)
+		
+	
 
 func get_instance_transform(id):
 	var rng = RandomNumberGenerator.new()
