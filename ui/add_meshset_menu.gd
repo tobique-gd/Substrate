@@ -30,7 +30,7 @@ func _on_add_button_pressed() -> void:
 		created_array.append(meshset_browser.meshsets[index])
 	
 	using_meshsets=created_array
-	meshset_updated.emit(using_meshsets)
+	meshset_updated.emit(using_meshsets.duplicate(true))
 	hide()
 
 

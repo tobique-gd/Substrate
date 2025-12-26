@@ -145,9 +145,8 @@ func _input(event: InputEvent) -> void:
 func _on_asset_browser_list_item_clicked(index: int, _at_position: Vector2, mouse_button_index: int) -> void:
 	if mouse_button_index == MOUSE_BUTTON_LEFT:
 		var icon = asset_browser_list.get_item_icon(index)
-		var material_path = GlobalPaths.materials_folder_path + str(asset_browser_list.get_item_text(index) + ".tres")
-
-		dragged_material = load(material_path)
+		
+		dragged_material = asset_browser_list.get_item_metadata(index)
 		holding_material = true
 
 		drag_icon = TextureRect.new()

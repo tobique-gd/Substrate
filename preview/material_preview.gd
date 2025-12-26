@@ -2,6 +2,8 @@ extends Node
 
 var sphere_mesh := SphereMesh.new()
 
+var BASIC_ENVIRONMENT = preload("res://core/environments/grass_field1.tres")
+
 func render_material_preview(material: Material, size: Vector2i) -> Image:
 	var vp := SubViewport.new()
 	vp.disable_3d = false
@@ -10,7 +12,7 @@ func render_material_preview(material: Material, size: Vector2i) -> Image:
 	vp.size = size
 
 	vp.world_3d = World3D.new()
-	vp.world_3d.environment = load("res://core/environments/grass_field1.tres")
+	vp.world_3d.environment = BASIC_ENVIRONMENT
 	get_tree().root.add_child.call_deferred(vp)
 
 	var root := Node3D.new()
@@ -32,4 +34,5 @@ func render_material_preview(material: Material, size: Vector2i) -> Image:
 	img.flip_y()
 	img = img.duplicate(true)
 	vp.queue_free()
+	
 	return img

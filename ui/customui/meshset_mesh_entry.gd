@@ -20,8 +20,8 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 	update()
 
 func update():
+	emit_signal("panel_clicked", uid, selected)
 	add_theme_stylebox_override("panel", selected_stylebox if selected else deselected_stylebox)
-	panel_clicked.emit(uid, selected)
 	check_box.button_pressed = selected
 	
 
@@ -31,6 +31,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			if self.get_global_rect().has_point(get_global_mouse_position()):
 				selected = !selected
 				check_box.button_pressed = selected
+				
 			
 
 func update_image_texture(tex: ImageTexture):

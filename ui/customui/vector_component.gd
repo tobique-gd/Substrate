@@ -57,6 +57,8 @@ func _enter_edit() -> void:
 	displayed_text_edit.text = str(value)
 	displayed_text_edit.grab_focus()
 
+
+
 func _on_displayed_text_edit_text_submitted(new_text: String) -> void:
 	value = clamp(float(new_text), min_value, max_value)
 	_update_text()
@@ -70,6 +72,6 @@ func _exit_edit() -> void:
 	displayed_text.visible = true
 
 func _update_text() -> void:
-	displayed_text.text = str(value)
-	displayed_text_edit.text = str(value)
-	emit_signal("value_changed", value, vector_index)
+	displayed_text.text = str(snappedf(value, 0.001))
+	displayed_text_edit.text = str(snappedf(value, 0.001))
+	emit_signal("value_changed", snappedf(value, 0.001), vector_index)

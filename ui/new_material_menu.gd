@@ -4,7 +4,7 @@ extends Control
 const MAX_NAME_LENGTH = 64
 const FORBIDDEN_CHARACTERS = ["\\", "/", ":", "*", "?", "\"", "<", ">", "|"]
 
-func _on_create_pressed() -> void:
+func _create() -> void:
 	if not name_edit:
 		return
 	
@@ -39,7 +39,3 @@ func _on_create_pressed() -> void:
 	
 	if error == OK:
 		hide()
-
-func _on_cancel_pressed() -> void:
-	name_edit.clear()
-	hide()

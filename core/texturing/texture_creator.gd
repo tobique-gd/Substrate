@@ -22,7 +22,7 @@ var texture_parameters = {
 		"type": "vec3",
 		"min": Vector3(0.0, 0.0, 0.0),
 		"max": Vector3(5.0, 5.0, 5.0),
-		"value": Vector3(0.0, 0.0, 0.0)
+		"value": Vector3(1.0, 1.0, 1.0)
 	},
 
 	"padding": {"type": "float", "min": 0.0, "max": 4.0, "value": 1.0},
@@ -96,16 +96,14 @@ func get_instance_transform(id):
 
 	var scl = texture_parameters["scale"].value
 	var scale = Vector3(
-		1.0 + rng.randf_range(-scl.x, scl.x),
-		1.0 + rng.randf_range(-scl.y, scl.y),
-		1.0 + rng.randf_range(-scl.z, scl.z)
+		rng.randf_range(scl.x, scl.x),
+		rng.randf_range(scl.y, scl.y),
+		rng.randf_range(scl.z, scl.z)
 	)
 
 	var t = Transform3D()
 	t.origin = pos
-	t = t.rotated_local(Vector3.RIGHT, rx)
-	t = t.rotated_local(Vector3.UP, ry)
-	t = t.rotated_local(Vector3.FORWARD, rz)
+	t.basis = Basis.from_euler(Vector3(rx, ry, rz))
 	t.basis = t.basis.scaled(scale)
 
 	return t

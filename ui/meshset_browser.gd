@@ -39,7 +39,7 @@ func add_meshset(path: String):
 		tex = ImageTexture.create_from_image(img)
 	
 	var model_array : Dictionary = create_model_array(root)
-
+	
 	meshsets.append({
 		"item_name": item_name,
 		"item_models": model_array,
