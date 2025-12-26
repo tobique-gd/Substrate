@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8iset3e5bolv"
 path.s3tc="res://.godot/imported/checkboard_pattern.jpg-0549ea60fab806b88ec5602a9a3ff329.s3tc.ctex"
+path.etc2="res://.godot/imported/checkboard_pattern.jpg-0549ea60fab806b88ec5602a9a3ff329.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/checkboard_pattern.jpg"
-dest_files=["res://.godot/imported/checkboard_pattern.jpg-0549ea60fab806b88ec5602a9a3ff329.s3tc.ctex"]
+dest_files=["res://.godot/imported/checkboard_pattern.jpg-0549ea60fab806b88ec5602a9a3ff329.s3tc.ctex", "res://.godot/imported/checkboard_pattern.jpg-0549ea60fab806b88ec5602a9a3ff329.etc2.ctex"]
 
 [params]
 

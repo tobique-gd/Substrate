@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://r0yfy4e7uo2g"
 path.bptc="res://.godot/imported/grass_field1.exr-aea4fcb336aef3dbcb06efba92eb1447.bptc.ctex"
+path.astc="res://.godot/imported/grass_field1.exr-aea4fcb336aef3dbcb06efba92eb1447.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/hdris/grass_field1.exr"
-dest_files=["res://.godot/imported/grass_field1.exr-aea4fcb336aef3dbcb06efba92eb1447.bptc.ctex"]
+dest_files=["res://.godot/imported/grass_field1.exr-aea4fcb336aef3dbcb06efba92eb1447.bptc.ctex", "res://.godot/imported/grass_field1.exr-aea4fcb336aef3dbcb06efba92eb1447.astc.ctex"]
 
 [params]
 

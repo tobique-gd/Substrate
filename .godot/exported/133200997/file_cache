@@ -1,0 +1,18 @@
+res://assets/materials/Plant Material 1.tres::bfbb6f70a53f63dd498a0c55aa90ed33::1764326436::res://.godot/exported/133200997/export-4e910600ec5f1af345a8b57fd983bee4-Plant Material 1.res
+res://assets/themes/ui_theme_dark.tres::a37cfb8e9df72544b72f10a49163266b::1766771010::res://.godot/exported/133200997/export-c29e0fe2fd4927164cbfafaa593a198c-ui_theme_dark.res
+res://core/environments/default.tres::5faedcb57c4406386e78e2764dae7d16::1766771010::res://.godot/exported/133200997/export-901a3e75d846d8a3286894ccd7faae49-default.res
+res://core/environments/grass_field1.tres::f349ce60295f188a6a082805f3767692::1766771010::res://.godot/exported/133200997/export-6aa481ce0353dbe03c98c3a4a10567c9-grass_field1.res
+res://core/environments/hill1.tres::0613cdf060eab022b72bd377d6941718::1764006442::res://.godot/exported/133200997/export-791cfa90166c645bc3d348e27c38e520-hill1.res
+res://core/environments/sky1.tres::2297fc63c285c454a595bd19f2562a43::1764006446::res://.godot/exported/133200997/export-cd02308868bce9f33b228324b7347817-sky1.res
+res://core/environments/studio1.tres::be6ca627db91d5313386be964a17c56b::1764006458::res://.godot/exported/133200997/export-3f416b651ddee158556852ae6db69560-studio1.res
+res://core/nodes/branches.tres::f69c5703ac0696212fe6be8a02feac30::1764056064::res://.godot/exported/133200997/export-914f0fddc12954d86d6bb80d889a3941-branches.res
+res://core/nodes/plant.tres::dee94d0bec91858f90e26b5138e0a2e9::1764056290::res://.godot/exported/133200997/export-4f653f1e06430bad4d21e02d343de556-plant.res
+res://core/nodes/trunk.tres::4a5b4c9dc4cc8cbbe2f5c37402686485::1764056064::res://.godot/exported/133200997/export-86e1507c6dbd6f3ff09e5e04a756c527-trunk.res
+res://preview/main.tscn::600886cba0ff165923cfe6b7387cd8c8::1766772421::res://.godot/exported/133200997/export-42f21b31792ba36223829eea9c1a793a-main.scn
+res://ui/customui/meshset_mesh_entry.tscn::b3ee49f39b0bc4e9cd1f53013d24ff60::1766772421::res://.godot/exported/133200997/export-0d0ea37ec84d19715326c35f8bebdd1b-meshset_mesh_entry.scn
+res://ui/customui/parameter_slider.tscn::8692b2d0797dd4e189c6ec7975830970::1766772421::res://.godot/exported/133200997/export-06db9da7448a54bfc00c53f4699048c0-parameter_slider.scn
+res://ui/customui/radio_button.tscn::71dbbf5e5989dcf42f6e383ed4e750c2::1764327908::res://.godot/exported/133200997/export-d54c4eea48e22aedcb3ee2a7dff60493-radio_button.scn
+res://ui/customui/rounded_texture_rect.tscn::ecd6a70d682c72236b33d6f5b8eac54b::1764327908::res://.godot/exported/133200997/export-4ecfa5d59a103dbf72dedfdeb92e819a-rounded_texture_rect.scn
+res://ui/customui/rounded_texture_rect_button.tscn::f4c818bd686d0c3f9b6fd531bdbefae4::1764327908::res://.godot/exported/133200997/export-48d735c592c048c43772722d7ccb3263-rounded_texture_rect_button.scn
+res://ui/customui/toggle_button.tscn::285f8bdcbc16bd0379fc05c3ee57d110::1764327908::res://.godot/exported/133200997/export-53405e3fae4e72a5a7dec239207d6f64-toggle_button.scn
+res://ui/customui/vector3_component.tscn::a024f16857861a1622a256d368be13eb::1766772421::res://.godot/exported/133200997/export-96e0cec9a582edd258d7a8f1218e1dfd-vector3_component.scn

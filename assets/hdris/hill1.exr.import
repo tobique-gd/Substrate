@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://lvksnrnsjesg"
 path.bptc="res://.godot/imported/hill1.exr-107dcf7552db412d12397f2bcaa3a7cb.bptc.ctex"
+path.astc="res://.godot/imported/hill1.exr-107dcf7552db412d12397f2bcaa3a7cb.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/hdris/hill1.exr"
-dest_files=["res://.godot/imported/hill1.exr-107dcf7552db412d12397f2bcaa3a7cb.bptc.ctex"]
+dest_files=["res://.godot/imported/hill1.exr-107dcf7552db412d12397f2bcaa3a7cb.bptc.ctex", "res://.godot/imported/hill1.exr-107dcf7552db412d12397f2bcaa3a7cb.astc.ctex"]
 
 [params]
 

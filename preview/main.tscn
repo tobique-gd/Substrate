@@ -1,9 +1,11 @@
-[gd_scene load_steps=117 format=3 uid="uid://dx7epc0uiwcnp"]
+[gd_scene load_steps=120 format=3 uid="uid://dx7epc0uiwcnp"]
 
 [ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_m1kmx"]
 [ext_resource type="Script" uid="uid://5l2ayhpk7xuc" path="res://preview/renderer.gd" id="2_3xprf"]
 [ext_resource type="Script" uid="uid://debbsim5vun5q" path="res://ui/views_container.gd" id="3_i2dcp"]
 [ext_resource type="Environment" uid="uid://bx43b6qqqd4yk" path="res://core/environments/default.tres" id="4_bkp57"]
+[ext_resource type="Shader" uid="uid://c5ujpusl4c3uc" path="res://assets/shaders/rounded.gdshader" id="4_m1kmx"]
+[ext_resource type="Texture2D" uid="uid://cs3uvumwfiddx" path="res://assets/textures/logo/SubstrateIcon.png" id="5_m1kmx"]
 [ext_resource type="Script" uid="uid://cu58bonnq1soj" path="res://preview/grid_renderer.gd" id="5_vsalf"]
 [ext_resource type="Script" uid="uid://cre4a15kxgyq3" path="res://preview/cam_pivot.gd" id="6_7urro"]
 [ext_resource type="Script" uid="uid://3y7bbsd2iepg" path="res://ui/top_panel.gd" id="7_hu7tj"]
@@ -24,7 +26,7 @@
 [ext_resource type="FontFile" uid="uid://p8bxh5sh2l5d" path="res://assets/fonts/Lato/Lato-Bold.ttf" id="22_w28hf"]
 [ext_resource type="Script" uid="uid://colv2882jcjxk" path="res://ui/texture_preview.gd" id="24_gjh70"]
 [ext_resource type="Shader" uid="uid://br3h7h0bvm8uk" path="res://assets/shaders/checkerboard_background.gdshader" id="25_yb0ag"]
-[ext_resource type="Script" uid="uid://c2vqih87nb4ny" path="res://core/texturing/texture_creator.gd" id="27_n7bmg"]
+[ext_resource type="Script" uid="uid://c2vqih87nb4ny" path="res://core/texture_editor/texture_creator.gd" id="27_n7bmg"]
 [ext_resource type="Script" uid="uid://uawyusucxydr" path="res://ui/inspector_panel.gd" id="28_yaspb"]
 [ext_resource type="Script" uid="uid://c2ll15w5a1mbj" path="res://ui/texture_properties_panel.gd" id="29_3xprf"]
 [ext_resource type="FontFile" uid="uid://cklkn6d1i0wpi" path="res://assets/fonts/Lato/Lato-Black.ttf" id="29_e4rdy"]
@@ -35,6 +37,12 @@
 [ext_resource type="Script" uid="uid://thaoxs3l6x1g" path="res://ui/node_add_menu.gd" id="33_tsadi"]
 [ext_resource type="Script" uid="uid://b485q7ym7pqoe" path="res://ui/add_meshset_menu.gd" id="36_83idj"]
 [ext_resource type="Script" uid="uid://c4udjlq8y64gk" path="res://ui/meshset_browser.gd" id="37_apuvo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2dcp"]
+shader = ExtResource("4_m1kmx")
+shader_parameter/radius = 0.2
+shader_parameter/border_color = Color(0.2588, 0.2588, 0.2588, 1)
+shader_parameter/border_width = 0.01
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8we68"]
 content_margin_left = 6.0
@@ -856,41 +864,58 @@ texture_editor_viewport = NodePath("HSplitContainer/VSplitContainer/TexturePrevi
 properties = NodePath("HSplitContainer/PropertiesPanel")
 texture_properties = NodePath("HSplitContainer/TexturePropertiesPanel")
 
-[node name="MenuBar" type="MenuBar" parent="MarginContainer/ViewsContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ViewsContainer"]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/ViewsContainer/HBoxContainer/MarginContainer"]
+material = SubResource("ShaderMaterial_i2dcp")
+layout_mode = 2
+texture = ExtResource("5_m1kmx")
+expand_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="MarginContainer/ViewsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("1_m1kmx")
 theme_override_font_sizes/font_size = 15
 flat = true
 prefer_global_menu = false
 
-[node name="File" type="PopupMenu" parent="MarginContainer/ViewsContainer/MenuBar"]
+[node name="File" type="PopupMenu" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
 theme = ExtResource("1_m1kmx")
 theme_override_constants/item_start_padding = 4
 item_count = 1
 item_0/text = "New"
 item_0/id = 0
 
-[node name="Edit" type="PopupMenu" parent="MarginContainer/ViewsContainer/MenuBar"]
+[node name="Edit" type="PopupMenu" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
 title = "Edit"
 theme = ExtResource("1_m1kmx")
 
-[node name="View" type="PopupMenu" parent="MarginContainer/ViewsContainer/MenuBar"]
+[node name="View" type="PopupMenu" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
 auto_translate_mode = 1
 title = "View"
 theme = ExtResource("1_m1kmx")
 
-[node name="Tools" type="PopupMenu" parent="MarginContainer/ViewsContainer/MenuBar"]
+[node name="Tools" type="PopupMenu" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
 auto_translate_mode = 1
 title = "Tools"
 theme = ExtResource("1_m1kmx")
 
-[node name="Help" type="PopupMenu" parent="MarginContainer/ViewsContainer/MenuBar"]
+[node name="Help" type="PopupMenu" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
 auto_translate_mode = 1
 title = "Help"
 theme = ExtResource("1_m1kmx")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ViewsContainer/MenuBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -899,7 +924,7 @@ offset_bottom = 28.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="GeneratingTab" type="Button" parent="MarginContainer/ViewsContainer/MenuBar/HBoxContainer"]
+[node name="GeneratingTab" type="Button" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -911,7 +936,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mw8t6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ebxbp")
 text = "Generating"
 
-[node name="TextureEditorTab" type="Button" parent="MarginContainer/ViewsContainer/MenuBar/HBoxContainer"]
+[node name="TextureEditorTab" type="Button" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -923,7 +948,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mw8t6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ebxbp")
 text = "Texture Editor"
 
-[node name="TexturingTab" type="Button" parent="MarginContainer/ViewsContainer/MenuBar/HBoxContainer"]
+[node name="TexturingTab" type="Button" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -935,7 +960,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mw8t6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ebxbp")
 text = "Texturing"
 
-[node name="OptimizationTab" type="Button" parent="MarginContainer/ViewsContainer/MenuBar/HBoxContainer"]
+[node name="OptimizationTab" type="Button" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -1735,9 +1760,9 @@ access = 2
 filters = PackedStringArray("*.glb")
 use_native_dialog = true
 
-[connection signal="pressed" from="MarginContainer/ViewsContainer/MenuBar/HBoxContainer/GeneratingTab" to="MarginContainer/ViewsContainer" method="_on_generating_tab_pressed"]
-[connection signal="pressed" from="MarginContainer/ViewsContainer/MenuBar/HBoxContainer/TextureEditorTab" to="MarginContainer/ViewsContainer" method="_on_texture_creation_tab_pressed"]
-[connection signal="pressed" from="MarginContainer/ViewsContainer/MenuBar/HBoxContainer/TexturingTab" to="MarginContainer/ViewsContainer" method="_on_texturing_tab_pressed"]
+[connection signal="pressed" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer/GeneratingTab" to="MarginContainer/ViewsContainer" method="_on_generating_tab_pressed"]
+[connection signal="pressed" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer/TextureEditorTab" to="MarginContainer/ViewsContainer" method="_on_texture_creation_tab_pressed"]
+[connection signal="pressed" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer/TexturingTab" to="MarginContainer/ViewsContainer" method="_on_texturing_tab_pressed"]
 [connection signal="toggled" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/ViewportGUI/Top Panel/MarginContainer/HSplitContainer/Views/DrawingOptions" to="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/ViewportGUI/Top Panel" method="_on_drawing_options_toggled"]
 [connection signal="item_selected" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/ViewportGUI/RenderOptions/MarginContainer/VBoxContainer/OptionButton" to="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/ViewportGUI/Top Panel" method="_on_option_button_item_selected"]
 [connection signal="connection_request" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/NodeEditor" to="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/NodeEditor" method="_on_connection_request"]

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfxv3f0odrcov"
 path.bptc="res://.godot/imported/sky1.exr-d04657de87d70bf1442fe2acf9d11835.bptc.ctex"
+path.astc="res://.godot/imported/sky1.exr-d04657de87d70bf1442fe2acf9d11835.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/hdris/sky1.exr"
-dest_files=["res://.godot/imported/sky1.exr-d04657de87d70bf1442fe2acf9d11835.bptc.ctex"]
+dest_files=["res://.godot/imported/sky1.exr-d04657de87d70bf1442fe2acf9d11835.bptc.ctex", "res://.godot/imported/sky1.exr-d04657de87d70bf1442fe2acf9d11835.astc.ctex"]
 
 [params]
 
