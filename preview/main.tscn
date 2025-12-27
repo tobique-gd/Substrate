@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://dx7epc0uiwcnp"]
+[gd_scene load_steps=127 format=3 uid="uid://dx7epc0uiwcnp"]
 
 [ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_m1kmx"]
 [ext_resource type="Script" uid="uid://5l2ayhpk7xuc" path="res://preview/renderer.gd" id="2_3xprf"]
@@ -36,7 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://dpexmx5ujq8gf" path="res://assets/icons/hslider/grabber.png" id="32_i2dcp"]
 [ext_resource type="Script" uid="uid://thaoxs3l6x1g" path="res://ui/node_add_menu.gd" id="33_tsadi"]
 [ext_resource type="Script" uid="uid://b485q7ym7pqoe" path="res://ui/add_meshset_menu.gd" id="36_83idj"]
+[ext_resource type="Script" uid="uid://8mrksgvm1mo1" path="res://core/generators/BaseGenerator.gd" id="36_vsalf"]
+[ext_resource type="Script" uid="uid://qdlioyanhf7" path="res://core/nodes/plant.gd" id="37_7urro"]
 [ext_resource type="Script" uid="uid://c4udjlq8y64gk" path="res://ui/meshset_browser.gd" id="37_apuvo"]
+[ext_resource type="Script" uid="uid://nv6aseornitn" path="res://core/nodes/branches.gd" id="38_hu7tj"]
+[ext_resource type="Script" uid="uid://dwaub715otcyx" path="res://core/nodes/trunk.gd" id="39_t5khn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i2dcp"]
 shader = ExtResource("4_m1kmx")
@@ -749,6 +753,18 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="Resource" id="Resource_lfktx"]
+script = ExtResource("37_7urro")
+metadata/_custom_type_script = "uid://qdlioyanhf7"
+
+[sub_resource type="Resource" id="Resource_qhp2m"]
+script = ExtResource("38_hu7tj")
+metadata/_custom_type_script = "uid://nv6aseornitn"
+
+[sub_resource type="Resource" id="Resource_3au8b"]
+script = ExtResource("39_t5khn")
+metadata/_custom_type_script = "uid://dwaub715otcyx"
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8we68"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe8s2"]
@@ -869,10 +885,10 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 4
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/ViewsContainer/HBoxContainer/MarginContainer"]
 material = SubResource("ShaderMaterial_i2dcp")
@@ -993,7 +1009,6 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport"]
 handle_input_locally = false
-msaa_3d = 2
 size = Vector2i(1400, 700)
 render_target_update_mode = 4
 
@@ -1578,7 +1593,7 @@ offset_bottom = 362.0
 script = ExtResource("33_tsadi")
 vbox = NodePath("Panel/MarginContainer/VBoxContainer")
 node_list = NodePath("Panel/MarginContainer/VBoxContainer/NodeList")
-nodes_folder_path = "res://core/nodes/"
+available_nodes = Array[ExtResource("36_vsalf")]([SubResource("Resource_lfktx"), SubResource("Resource_qhp2m"), SubResource("Resource_3au8b")])
 
 [node name="Panel" type="Panel" parent="NodeAddMenu"]
 layout_mode = 1

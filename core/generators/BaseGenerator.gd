@@ -1,6 +1,6 @@
 extends Resource
 
-class_name TreeGenerator
+class_name SubstrateNode
 
 var parameters = {}
 

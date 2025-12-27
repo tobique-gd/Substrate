@@ -9,3 +9,12 @@ res://assets/shaders/checkerboard_background.gdshader
 res://ui/customui/meshset_mesh_entry.tscn
 res://ui/customui/parameter_slider.tscn
 res://ui/customui/vector3_component.tscn
+res://ui/node_add_menu.gd
+res://core/generators/TreeGenerator.gd
+res://ui/nodes/generator_node.gd
+res://core/generators/BaseGenerator.gd
+res://core/nodes/branches.gd
+res://core/nodes/plant.gd
+res://core/nodes/trunk.gd
+res://preview/grid_renderer.gd
+res://ui/meshset_browser.gd

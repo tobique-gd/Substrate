@@ -1,4 +1,4 @@
-extends TreeGenerator
+extends SubstrateNode
 class_name PlantGenerator
 
 var node_parameters = {

@@ -3,23 +3,18 @@ extends Control
 @export var vbox : VBoxContainer
 @export var node_list : ItemList
 
-@export var nodes_folder_path : String
+@export var available_nodes : Array[SubstrateNode] = []
 
 signal add_node_selected(node_name)
 
 func spawn(pos):
 	
-	if not DirAccess.dir_exists_absolute(nodes_folder_path):
-		return
-	
 	node_list.clear()
-	var node_dir = DirAccess.open(nodes_folder_path)
-	
-	var all_nodes = node_dir.get_files()
+
+	var all_nodes = available_nodes
 	
 	for file in all_nodes:
-		if file.get_extension() == "gd":
-			node_list.add_item(file.get_basename().capitalize())
+		node_list.add_item(file.node_name)
 	
 	
 	

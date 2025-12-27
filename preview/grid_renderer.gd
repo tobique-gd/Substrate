@@ -2,7 +2,7 @@ extends Node3D
 
 @export var grid_size: int = 10
 @export var spacing: float = 1.0
-@export var axis_radius: float = 0.05
+@export var axis_radius: float = 0.2
 @export var axis_length: float = 10000.0
 @export var zoom_arm: SpringArm3D
 
@@ -24,7 +24,7 @@ func _on_zoom_changed(zoom: float):
 
 func update_grid_and_axes(zoom_value: float):
 	var t = clamp(zoom_value / zoom_arm.max_length, 0.0, 1.0)
-	var scale_factor = lerp(0.1, 2.0, t)
+	var scale_factor = lerp(0.4, 2.0, t)
 
 
 	for n in grid_nodes:

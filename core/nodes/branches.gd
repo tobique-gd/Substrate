@@ -1,4 +1,4 @@
-extends TreeGenerator
+extends SubstrateNode
 class_name SimpleBranches
 
 # Global counter to track vertex indices manually

@@ -1,7 +1,7 @@
 extends GraphNode
 class_name GeneratorNode
 
-@export var resource : TreeGenerator = null
+@export var resource : SubstrateNode = null
 
 var color_node_type_map = {
 	0 : Color(.5, .75, .75),

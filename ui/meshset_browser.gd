@@ -1,50 +1,56 @@
 extends ItemList
 
 @export var meshsets: Array[Dictionary]
+@export var default_meshsets: Array[Dictionary]
 
 func update():
-	if not DirAccess.dir_exists_absolute(GlobalPaths.default_meshsets_path):
+	var files := ResourceLoader.list_directory(GlobalPaths.default_meshsets_path)
+	if files.is_empty():
 		return
-	var meshsets_dir = DirAccess.open(GlobalPaths.default_meshsets_path)
-		
-	for file in meshsets_dir.get_files():
-		if file.get_extension() == "glb":
-			for meshset in meshsets:
-				if meshset["item_name"] == file.get_basename():
-					return
-			
-			add_meshset(GlobalPaths.default_meshsets_path + file)
-	
+
+	for file in files:
+		if not file.ends_with(".glb"):
+			continue
+
+		var name := file.get_basename()
+
+		var exists := false
+		for meshset in meshsets:
+			if meshset["item_name"] == name:
+				exists = true
+				break
+
+		if exists:
+			continue
+
+		add_meshset(GlobalPaths.default_meshsets_path + file)
+
 	update_itemlist()
 
+
 func add_meshset(path: String):
-	var gltf_document = GLTFDocument.new()
-	var gltf_state = GLTFState.new()
-	var err = gltf_document.append_from_file(path, gltf_state)
-	if err != OK:
+	var scene := ResourceLoader.load(path) as PackedScene
+	if scene == null:
 		return
 
-	var root = gltf_document.generate_scene(gltf_state)
-	if root == null:
-		return
+	var root := scene.instantiate()
 
-	var item_name = path.split("/")[-1].get_basename()
+	var item_name := path.get_file().get_basename()
 
-	var tex: Texture2D = null
-	tex = search_through_children(root)
-
+	var tex: Texture2D = search_through_children(root)
 	if tex == null:
-		var img = Image.create(64, 64, false, Image.FORMAT_RGBA8)
+		var img := Image.create(64, 64, false, Image.FORMAT_RGBA8)
 		img.fill(Color.GRAY)
 		tex = ImageTexture.create_from_image(img)
-	
-	var model_array : Dictionary = create_model_array(root)
-	
+
+	var model_array := create_model_array(root)
+
 	meshsets.append({
 		"item_name": item_name,
 		"item_models": model_array,
 		"item_tex": tex
 	})
+
 
 	
 
