@@ -50,6 +50,7 @@ func add_meshset(path: String):
 		"item_models": model_array,
 		"item_tex": tex
 	})
+	
 
 
 	
@@ -71,22 +72,25 @@ func search_through_children(node):
 	return null
 
 func create_model_array(root) -> Dictionary:
-	var model_dict : Dictionary = {}
-	_collect_meshes(root, model_dict, 0)
+	var model_dict := {}
+	_collect_meshes(root, root, model_dict, 0)
 	return model_dict
 
 
-func _collect_meshes(node, model_dict: Dictionary, index: int) -> int:
+func _collect_meshes(node, root: Node, model_dict: Dictionary, index: int, path: NodePath = NodePath("")) -> int:
 	for child in node.get_children():
+		var child_path = String(path) + child.name
 		if child is MeshInstance3D:
 			model_dict[index] = {
-				"mesh": child,
+				"scene_path": root.scene_file_path,
+				"node_path": String(child_path),
 				"allowed": true
 			}
 			index += 1
 		else:
-			index = _collect_meshes(child, model_dict, index)
+			index = _collect_meshes(child, root, model_dict, index, child_path)
 	return index
+
 
 
 func update_itemlist():

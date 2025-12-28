@@ -3,7 +3,7 @@ extends Node3D
 @export var texture_properties_panel : Control
 @export var cam : Camera3D
 
-var texture_parameters = {
+var texture_parameters : Dictionary = {
 	"spread": {
 		"type": "vec3",
 		"min": Vector3(0.0, 0.0, 0.0),
@@ -35,7 +35,20 @@ var texture_parameters = {
 func _ready() -> void:
 	texture_properties_panel.generate_texture.connect(_on_generate_texture.bind())
 
-func _on_generate_texture(meshset_data: Array[Dictionary]) -> void:
+func _resolve_mesh_instance(entry: Dictionary) -> MeshInstance3D:
+	var scene := load(entry["scene_path"]) as PackedScene
+	if scene == null:
+		return null
+
+	var inst := scene.instantiate()
+	var node := inst.get_node_or_null(NodePath(entry["node_path"]))
+	if node is MeshInstance3D:
+		return node
+
+	return null
+
+
+func _on_generate_texture(meshset_data: Array) -> void:
 	for c in get_children():
 		c.queue_free()
 
@@ -49,8 +62,12 @@ func _on_generate_texture(meshset_data: Array[Dictionary]) -> void:
 			if mesh_entry.has("allowed") and not mesh_entry["allowed"]:
 				continue
 
-			var meshinstance : MeshInstance3D = mesh_entry["mesh"]
+			var meshinstance := _resolve_mesh_instance(mesh_entry)
+			if meshinstance == null:
+				continue
+
 			var mesh_clone : MeshInstance3D = meshinstance.duplicate()
+
 			
 			
 			add_child(mesh_clone)

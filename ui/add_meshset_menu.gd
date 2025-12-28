@@ -10,8 +10,6 @@ signal meshset_updated(meshset)
 func _on_import_button_pressed() -> void:
 	file_dialog.popup()
 
-
-
 func _on_file_dialog_files_selected(paths: PackedStringArray) -> void:
 	for path in paths:
 		if path.is_absolute_path():

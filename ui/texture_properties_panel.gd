@@ -11,7 +11,7 @@ extends Control
 signal generate_texture(meshset_data)
 signal params_changed(params)
 
-var meshsets : Array[Dictionary] = []
+var meshsets : Array = []
 var current_meshset : Dictionary = {}
 var preview_request_id : int = 0
 var original_params = {}
@@ -20,10 +20,15 @@ var original_params = {}
 const MESH_UID_BITS := 16
 const MESH_UID_MASK := (1 << MESH_UID_BITS) - 1
 
-
 func _ready() -> void:
+	SaveManager.register_property(self, "meshsets")
 	_init_properties_header()
 	add_meshset_menu.meshset_updated.connect(update_meshset_list.bind())
+
+func load_substrate_data():
+	_add_meshsets_to_list(meshsets)
+	update_texture(true)
+
 
 func get_texture_parameters_from_node(node):
 	return node.texture_parameters
@@ -32,10 +37,11 @@ func _on_add_meshset_button_pressed() -> void:
 	add_meshset_menu.show()
 
 func update_meshset_list(m_meshsets : Array[Dictionary]) -> void:
-	
-	_add_meshsets_to_list(m_meshsets)
 	meshsets.append_array(m_meshsets)
+	_add_meshsets_to_list(m_meshsets)
 	update_texture(true)
+
+	
 
 	
 
@@ -95,10 +101,10 @@ func get_properties():
 
 var counter = 0
 
-func _add_meshsets_to_list(m_meshsets : Array[Dictionary]) -> void:
+func _add_meshsets_to_list(m_meshsets : Array) -> void:
 	for meshset in m_meshsets:
 		var meshset_uid = counter
-		meshset["uid"] = meshset_uid
+		meshset["uid"] = int(meshset_uid)
 		
 		var list_index := meshset_list.item_count
 		meshset_list.add_item(meshset["item_name"], meshset["item_tex"])
@@ -129,11 +135,23 @@ func _delete_meshset_previews() -> void:
 		c.queue_free()
 
 func _find_meshset_by_id(id: int) -> Dictionary:
-	
 	for mset in meshsets:
-		if mset["uid"] == id:
+		if mset["uid"] == int(id):
 			return mset
 	return {}
+
+func _resolve_mesh(entry_data: Dictionary) -> Mesh:
+	var scene := load(entry_data["scene_path"]) as PackedScene
+	if scene == null:
+		return null
+
+	var inst := scene.instantiate()
+	var node := inst.get_node_or_null(NodePath(entry_data["node_path"]))
+	if node is MeshInstance3D:
+		return node.mesh
+
+	return null
+
 
 func _build_meshset_previews(index : int) -> void:
 	preview_request_id += 1
@@ -148,12 +166,15 @@ func _build_meshset_previews(index : int) -> void:
 
 	for mesh_uid in current_meshset["item_models"].keys():
 		var entry_data = current_meshset["item_models"][mesh_uid]
-		var mesh : Mesh = entry_data["mesh"].mesh
+		var mesh := _resolve_mesh(entry_data)
+		if mesh == null:
+			continue
+
 		var img = await MeshsetPreview.render_meshset_mesh_preview(mesh, Vector2i(256, 256))
 		if request_id != preview_request_id:
 			return
 
-		var preview_uid := make_preview_uid(meshset_uid, mesh_uid)
+		var preview_uid := make_preview_uid(meshset_uid, int(mesh_uid))
 		_create_mesh_preview_entry(preview_uid, img)
 
 
@@ -167,6 +188,7 @@ func _create_mesh_preview_entry(uid : int, img : Image) -> void:
 	entry.uid = uid
 
 	var data = unpack_preview_uid(uid)
+	
 	entry.selected = current_meshset["item_models"][data.mesh_uid]["allowed"]
 
 	entry.update()

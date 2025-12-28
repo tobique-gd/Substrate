@@ -1,4 +1,4 @@
-res://preview/main.tscn
+res://ui/customui/vector3_component.tscn
 res://core/environments/grass_field1.tres
 res://assets/themes/ui_theme_dark.tres
 res://core/environments/default.tres
@@ -6,15 +6,11 @@ res://assets/shaders/rounded.gdshader
 res://ui/shaders/rounded_corners.gdshader
 res://assets/shaders/default_material.gdshader
 res://assets/shaders/checkerboard_background.gdshader
+res://preview/main.tscn
+res://core/saving/save_manager.gd
+res://ui/add_meshset_menu.gd
+res://ui/texture_properties_panel.gd
 res://ui/customui/meshset_mesh_entry.tscn
 res://ui/customui/parameter_slider.tscn
-res://ui/customui/vector3_component.tscn
-res://ui/node_add_menu.gd
-res://core/generators/TreeGenerator.gd
-res://ui/nodes/generator_node.gd
-res://core/generators/BaseGenerator.gd
-res://core/nodes/branches.gd
-res://core/nodes/plant.gd
-res://core/nodes/trunk.gd
-res://preview/grid_renderer.gd
 res://ui/meshset_browser.gd
+res://core/texture_editor/texture_creator.gd
