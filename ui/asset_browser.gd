@@ -4,17 +4,13 @@ var materials : Dictionary = {}
 
 @export var asset_browser_list : ItemList
 
-const BASIC_SHADER = preload("res://assets/shaders/default_material.gdshader")
-
-func _on_create_mat_button_pressed() -> void:
-	pass
+const DEFAULT_MATERIAL = preload("res://assets/materials/default_material.tres")
 
 func _on_add_material_button_pressed() -> void:
 	if !asset_browser_list:
 		return
 	
-	var new_material = ShaderMaterial.new()
-	new_material.shader = BASIC_SHADER
+	var new_material = DEFAULT_MATERIAL
 	
 	var material_name = generate_material_name()
 	var new_id = materials.size()
@@ -46,5 +42,11 @@ func generate_material_name():
 		
 	return current_material_name
 
+
 func _on_remove_material_button_pressed() -> void:
-	pass # Replace with function body.
+	#TODO delete all material instances of deleted material
+	
+	if not asset_browser_list.get_selected_items().size()>0:
+		return
+	
+	asset_browser_list.remove_item(asset_browser_list.get_selected_items()[0])

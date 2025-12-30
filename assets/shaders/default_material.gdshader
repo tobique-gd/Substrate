@@ -6,8 +6,7 @@ void vertex() {
 }
 
 void fragment() {
-	ALBEDO = vec3(1.0, 0.0, 1.0);
-	NORMAL = !FRONT_FACING ? -NORMAL : NORMAL;
+	ALBEDO = vec3(1.0, 1.0, 1.0);
 }
 
 //void light() {

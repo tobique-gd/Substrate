@@ -96,6 +96,7 @@ func _decode(value):
 		return out
 	return value
 
+#REMOVE IN BUILD
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cut"):
 		save_substrate("user://test.substrate")

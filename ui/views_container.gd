@@ -5,13 +5,15 @@ extends VSplitContainer
 @export var model_viewport: SubViewportContainer
 @export var texture_editor_viewport: Panel
 @export var properties: Control
-@export var texture_properties: Control
+@export var meshset_properties: Control
+@export var export_properties: Control
 
 var panels := {}
 var views := {
 	"generating": ["model_viewport", "node_editor", "properties"],
 	"texturing": ["model_viewport", "asset_browser"],
-	"texture_editing": ["texture_editor_viewport", "texture_properties"]
+	"texture_editing": ["texture_editor_viewport", "meshset_properties"],
+	"exporting": ["model_viewport", "export_properties"]
 }
 
 func _ready():
@@ -21,7 +23,8 @@ func _ready():
 		"model_viewport": model_viewport,
 		"texture_editor_viewport": texture_editor_viewport,
 		"properties": properties,
-		"texture_properties":texture_properties
+		"meshset_properties":meshset_properties,
+		"export_properties":export_properties
 	}
 
 func update(view:String):
@@ -38,3 +41,7 @@ func _on_texturing_tab_pressed():
 
 func _on_texture_creation_tab_pressed():
 	update("texture_editing")
+
+
+func _on_export_tab_pressed() -> void:
+	update("exporting")

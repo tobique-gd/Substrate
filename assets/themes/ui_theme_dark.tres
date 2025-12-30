@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=37 format=3 uid="uid://p4b58dght06n"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://p4b58dght06n"]
 
 [ext_resource type="Texture2D" uid="uid://dpexmx5ujq8gf" path="res://assets/icons/hslider/grabber.png" id="1_5p0n6"]
 [ext_resource type="Texture2D" uid="uid://bo6fdq04betes" path="res://assets/icons/graph_node/port.png" id="1_sohes"]
@@ -7,28 +7,32 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exypi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p0n6"]
-bg_color = Color(0.183249, 0.193834, 0.207674, 1)
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.1827, 0.19453, 0.21, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ps4n"]
-bg_color = Color(0.183249, 0.193834, 0.207674, 1)
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.2225, 0.234417, 0.25, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sohes"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
 draw_center = false
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -40,15 +44,15 @@ expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61c6n"]
-bg_color = Color(0.267099, 0.281044, 0.299279, 1)
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.22, 0.233, 0.25, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xqs0"]
 content_margin_left = 2.0
@@ -143,16 +147,6 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 expand_margin_top = 6.0
 expand_margin_bottom = 6.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkwk6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sohes"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ps4n"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p0n6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2vase"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cw44o"]
 bg_color = Color(0.1235, 0.124692, 0.13, 1)
@@ -320,11 +314,6 @@ HSlider/styles/slider = SubResource("StyleBoxFlat_d50b5")
 ItemList/colors/font_color = Color(1, 1, 1, 1)
 ItemList/constants/h_separation = 0
 ItemList/constants/v_separation = 2
-ItemList/styles/focus = SubResource("StyleBoxEmpty_rkwk6")
-ItemList/styles/hovered_selected = SubResource("StyleBoxEmpty_sohes")
-ItemList/styles/hovered_selected_focus = SubResource("StyleBoxEmpty_8ps4n")
-ItemList/styles/selected = SubResource("StyleBoxEmpty_5p0n6")
-ItemList/styles/selected_focus = SubResource("StyleBoxEmpty_2vase")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_cw44o")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_8cbnv")
 OptionButton/styles/focus = SubResource("StyleBoxFlat_7mmdw")

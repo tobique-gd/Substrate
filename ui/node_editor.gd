@@ -1,6 +1,7 @@
 extends GraphEdit
 
 @export var node_add_menu: Control
+@export var node_search_menu : Control
 
 signal render()
 signal clear_selected_node()
@@ -10,6 +11,7 @@ var selected_node = null
 
 func _ready():
 	if node_add_menu:
+		node_search_menu.add_node_selected.connect(add_selected_node_with_resource.bind())
 		node_add_menu.add_node_selected.connect(add_selected_node_with_resource.bind())
 
 func _input(event):
@@ -17,6 +19,7 @@ func _input(event):
 		if Shortcuts.is_shortcut(event, Shortcuts.shortcuts["add_node"]):
 			if node_add_menu and get_global_rect().has_point(get_global_mouse_position()):
 				node_add_menu.spawn(get_global_mouse_position())
+					
 		if Shortcuts.is_shortcut(event, Shortcuts.shortcuts["delete_node"])  and selected_node:
 			selected_node.free()
 			clear_selected_node.emit()
@@ -41,6 +44,8 @@ func _input(event):
 func add_selected_node_with_resource(node_name):
 	var node_instance = GeneratorNode.new()
 	var resource = load("res://core/nodes/" + node_name.to_lower() + ".tres")
+	if resource == null:
+		return
 	node_instance.resource = resource.duplicate()
 	add_child(node_instance)
 	node_instance.selected = true
