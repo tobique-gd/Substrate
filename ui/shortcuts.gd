@@ -13,6 +13,13 @@ var shortcuts = {
 		"shift": false,
 		"ctrl": false,
 		"alt": false
+	},
+	"save_project": {
+		"key": KEY_S,
+		"shift": false,
+		"ctrl": true,
+		"alt": false
+		
 	}
 }
 
@@ -23,7 +30,7 @@ func is_shortcut(event: InputEventKey, shortcut: Dictionary) -> bool:
 		return false
 	if event.shift_pressed != shortcut["shift"]:
 		return false
-	if event.ctrl_pressed != shortcut["ctrl"]:
+	if event.ctrl_pressed != shortcut["ctrl"] and event.meta_pressed != shortcut["ctrl"] :
 		return false
 	if event.alt_pressed != shortcut["alt"]:
 		return false

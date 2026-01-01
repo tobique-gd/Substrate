@@ -17,7 +17,9 @@ func _ready():
 func _input(event):
 	if event is InputEventKey:
 		if Shortcuts.is_shortcut(event, Shortcuts.shortcuts["add_node"]):
+			SaveManager.mark_modified()
 			if node_add_menu and get_global_rect().has_point(get_global_mouse_position()):
+				
 				node_add_menu.spawn(get_global_mouse_position())
 					
 		if Shortcuts.is_shortcut(event, Shortcuts.shortcuts["delete_node"])  and selected_node:

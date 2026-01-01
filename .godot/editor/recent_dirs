@@ -1,6 +1,6 @@
-res://assets/materials/
-res://ui
 /Users/tobiaszilvar/Documents/Godot Games/substrate/exports
+res://ui
+res://assets/materials/
 res://core/saving
 res://assets/textures/logo
 res://assets/shaders

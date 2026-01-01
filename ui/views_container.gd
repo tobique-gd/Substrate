@@ -17,6 +17,8 @@ var views := {
 }
 
 func _ready():
+	SaveManager.register_property(self, "current_view")
+	
 	panels = {
 		"node_editor": node_editor,
 		"asset_browser": asset_browser,
@@ -27,11 +29,19 @@ func _ready():
 		"export_properties":export_properties
 	}
 
+var current_view = "generating"
+
 func update(view:String):
 	if not views.has(view):
 		return
 	for k in panels.keys():
 		panels[k].visible = k in views[view]
+	current_view = view
+
+
+
+func load_substrate_data():
+	update(current_view)
 
 func _on_generating_tab_pressed():
 	update("generating")

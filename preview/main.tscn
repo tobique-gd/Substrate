@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=3 uid="uid://dx7epc0uiwcnp"]
+[gd_scene load_steps=135 format=3 uid="uid://dx7epc0uiwcnp"]
 
 [ext_resource type="Theme" uid="uid://p4b58dght06n" path="res://assets/themes/ui_theme_dark.tres" id="1_m1kmx"]
 [ext_resource type="Script" uid="uid://5l2ayhpk7xuc" path="res://preview/renderer.gd" id="2_3xprf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cs3uvumwfiddx" path="res://assets/textures/logo/SubstrateIcon.png" id="5_m1kmx"]
 [ext_resource type="Script" uid="uid://cu58bonnq1soj" path="res://preview/grid_renderer.gd" id="5_vsalf"]
 [ext_resource type="Script" uid="uid://cre4a15kxgyq3" path="res://preview/cam_pivot.gd" id="6_7urro"]
+[ext_resource type="Script" uid="uid://cqh82doydqr84" path="res://ui/menu_bar.gd" id="6_t5khn"]
 [ext_resource type="Script" uid="uid://3y7bbsd2iepg" path="res://ui/top_panel.gd" id="7_hu7tj"]
 [ext_resource type="PackedScene" uid="uid://brxe7i28yuxvm" path="res://ui/customui/radio_button.tscn" id="8_t5khn"]
 [ext_resource type="Texture2D" uid="uid://c3heen86asyry" path="res://assets/icons/views/wireframe.png" id="9_lfktx"]
@@ -927,7 +928,7 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 4
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 4
@@ -938,7 +939,7 @@ layout_mode = 2
 texture = ExtResource("5_m1kmx")
 expand_mode = 2
 
-[node name="MenuBar" type="MenuBar" parent="MarginContainer/ViewsContainer/HBoxContainer"]
+[node name="MenuBar" type="MenuBar" parent="MarginContainer/ViewsContainer/HBoxContainer" node_paths=PackedStringArray("open_file_dialog", "save_file_dialog", "file_popup", "recent_submenu")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -946,13 +947,46 @@ theme = ExtResource("1_m1kmx")
 theme_override_font_sizes/font_size = 15
 flat = true
 prefer_global_menu = false
+script = ExtResource("6_t5khn")
+open_file_dialog = NodePath("OpenFileDialog")
+save_file_dialog = NodePath("SaveFileDialog")
+file_popup = NodePath("File")
+recent_submenu = NodePath("File/RecentSubmenu")
 
 [node name="File" type="PopupMenu" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
+size = Vector2i(119, 136)
 theme = ExtResource("1_m1kmx")
 theme_override_constants/item_start_padding = 4
-item_count = 1
+item_count = 6
 item_0/text = "New"
 item_0/id = 0
+item_1/text = "Open"
+item_1/id = 1
+item_2/text = "Open Recent"
+item_2/id = 2
+item_3/id = 3
+item_3/separator = true
+item_4/text = "Save"
+item_4/id = 4
+item_5/text = "Save As"
+item_5/id = 5
+
+[node name="RecentSubmenu" type="PopupMenu" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/File"]
+
+[node name="OpenFileDialog" type="FileDialog" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.substrate")
+use_native_dialog = true
+
+[node name="SaveFileDialog" type="FileDialog" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
+auto_translate_mode = 1
+title = "Save your project"
+access = 2
+filters = PackedStringArray("*.substrate")
+use_native_dialog = true
 
 [node name="Edit" type="PopupMenu" parent="MarginContainer/ViewsContainer/HBoxContainer/MenuBar"]
 title = "Edit"
@@ -1067,7 +1101,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport"]
 handle_input_locally = false
-size = Vector2i(1400, 1028)
+size = Vector2i(1400, 700)
 render_target_update_mode = 4
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport"]
@@ -1316,7 +1350,6 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 
 [node name="NodeEditor" type="GraphEdit" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer" node_paths=PackedStringArray("node_add_menu", "node_search_menu")]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_m1kmx")
 snapping_distance = 5
@@ -1460,7 +1493,6 @@ texture_properties_panel = NodePath("../../../../../../../TexturePropertiesPanel
 cam = NodePath("../Camera3D")
 
 [node name="PropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("properties")]
-visible = false
 layout_mode = 2
 script = ExtResource("28_yaspb")
 properties = NodePath("Panel/MarginContainer/Properties")
@@ -1495,6 +1527,7 @@ theme_override_constants/v_separation = 12
 columns = 2
 
 [node name="ExportPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("file_dialog", "meshinstances_to_export")]
+visible = false
 layout_mode = 2
 script = ExtResource("33_hu7tj")
 file_dialog = NodePath("Panel/MarginContainer/ExportPropertiesContainer/FileDialog")
@@ -1976,6 +2009,9 @@ size_flags_vertical = 3
 theme = ExtResource("1_m1kmx")
 allow_search = false
 
+[connection signal="id_pressed" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/File" to="MarginContainer/ViewsContainer/HBoxContainer/MenuBar" method="_on_file_id_pressed"]
+[connection signal="file_selected" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/OpenFileDialog" to="MarginContainer/ViewsContainer/HBoxContainer/MenuBar" method="_on_open_file_dialog_file_selected"]
+[connection signal="file_selected" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/SaveFileDialog" to="MarginContainer/ViewsContainer/HBoxContainer/MenuBar" method="_on_save_file_dialog_file_selected"]
 [connection signal="pressed" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer/GeneratingTab" to="MarginContainer/ViewsContainer" method="_on_generating_tab_pressed"]
 [connection signal="pressed" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer/TextureEditorTab" to="MarginContainer/ViewsContainer" method="_on_texture_creation_tab_pressed"]
 [connection signal="pressed" from="MarginContainer/ViewsContainer/HBoxContainer/MenuBar/HBoxContainer/TexturingTab" to="MarginContainer/ViewsContainer" method="_on_texturing_tab_pressed"]
