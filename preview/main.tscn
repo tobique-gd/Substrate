@@ -30,13 +30,13 @@
 [ext_resource type="Script" uid="uid://c2vqih87nb4ny" path="res://core/texture_editor/texture_creator.gd" id="27_n7bmg"]
 [ext_resource type="Script" uid="uid://uawyusucxydr" path="res://ui/inspector_panel.gd" id="28_yaspb"]
 [ext_resource type="Script" uid="uid://c2ll15w5a1mbj" path="res://ui/texture_properties_panel.gd" id="29_3xprf"]
-[ext_resource type="FontFile" uid="uid://cklkn6d1i0wpi" path="res://assets/fonts/Lato/Lato-Black.ttf" id="29_e4rdy"]
 [ext_resource type="Texture2D" uid="uid://bo6fdq04betes" path="res://assets/icons/graph_node/port.png" id="31_3xprf"]
 [ext_resource type="Texture2D" uid="uid://c7y87uva8jgpj" path="res://assets/icons/buttons/plus.png" id="31_m1kmx"]
 [ext_resource type="Texture2D" uid="uid://ce3lpylhvvgoc" path="res://assets/icons/buttons/minus.png" id="32_3xprf"]
 [ext_resource type="Texture2D" uid="uid://dpexmx5ujq8gf" path="res://assets/icons/hslider/grabber.png" id="32_i2dcp"]
 [ext_resource type="Script" uid="uid://b2n1fk7hfxj7m" path="res://ui/export_panel.gd" id="33_hu7tj"]
 [ext_resource type="Script" uid="uid://thaoxs3l6x1g" path="res://ui/node_add_menu.gd" id="33_tsadi"]
+[ext_resource type="Script" uid="uid://cr0py67xo8ohn" path="res://ui/material_properties_panel.gd" id="34_t5khn"]
 [ext_resource type="Script" uid="uid://b485q7ym7pqoe" path="res://ui/add_meshset_menu.gd" id="36_83idj"]
 [ext_resource type="Script" uid="uid://8mrksgvm1mo1" path="res://core/generators/BaseGenerator.gd" id="36_vsalf"]
 [ext_resource type="Script" uid="uid://qdlioyanhf7" path="res://core/nodes/plant.gd" id="37_7urro"]
@@ -106,9 +106,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttumb"]
-cull_mode = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yocax"]
 
@@ -730,7 +727,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_7urro"]
-font = ExtResource("29_e4rdy")
+font = ExtResource("22_w28hf")
 font_size = 24
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hu7tj"]
@@ -772,6 +769,18 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g0da"]
+content_margin_left = 6.0
+content_margin_top = 2.0
+content_margin_right = 6.0
+content_margin_bottom = 2.0
+bg_color = Color(0.22, 0.233, 0.25, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8we68"]
 
@@ -909,7 +918,7 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="ViewsContainer" type="VSplitContainer" parent="MarginContainer" node_paths=PackedStringArray("node_editor", "asset_browser", "model_viewport", "texture_editor_viewport", "properties", "meshset_properties", "export_properties")]
+[node name="ViewsContainer" type="VSplitContainer" parent="MarginContainer" node_paths=PackedStringArray("node_editor", "asset_browser", "model_viewport", "texture_editor_viewport", "properties", "meshset_properties", "export_properties", "material_properties")]
 layout_mode = 2
 split_offset = 40
 dragging_enabled = false
@@ -920,8 +929,9 @@ asset_browser = NodePath("HSplitContainer/VSplitContainer/AssetBrowser")
 model_viewport = NodePath("HSplitContainer/VSplitContainer/ModelViewport")
 texture_editor_viewport = NodePath("HSplitContainer/VSplitContainer/TexturePreview")
 properties = NodePath("HSplitContainer/PropertiesPanel")
-meshset_properties = NodePath("HSplitContainer/TexturePropertiesPanel")
+meshset_properties = NodePath("HSplitContainer/MeshsetPropertiesPanel")
 export_properties = NodePath("HSplitContainer/ExportPanel")
+material_properties = NodePath("HSplitContainer/MaterialPropertiesPanel")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ViewsContainer"]
 layout_mode = 2
@@ -1024,6 +1034,7 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_m1kmx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8we68")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mw8t6")
@@ -1036,6 +1047,7 @@ text = "Generating"
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_m1kmx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8we68")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mw8t6")
@@ -1048,6 +1060,7 @@ text = "Texture Editor"
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_m1kmx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8we68")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mw8t6")
@@ -1060,6 +1073,7 @@ text = "Texturing"
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_m1kmx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8we68")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mw8t6")
@@ -1072,6 +1086,7 @@ text = "Optimization"
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_m1kmx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8we68")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mw8t6")
@@ -1119,7 +1134,6 @@ zoom_arm = NodePath("../CamPivot")
 [node name="TreePivot" type="Node3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport"]
 
 [node name="GeneratedMesh" type="MeshInstance3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport/TreePivot"]
-material_override = SubResource("StandardMaterial3D_ttumb")
 
 [node name="CamPivot" type="SpringArm3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/ModelViewport/SubViewport"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0.402027, 0)
@@ -1350,6 +1364,7 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 
 [node name="NodeEditor" type="GraphEdit" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer" node_paths=PackedStringArray("node_add_menu", "node_search_menu")]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_m1kmx")
 snapping_distance = 5
@@ -1363,7 +1378,6 @@ node_add_menu = NodePath("../../../../../NodeAddMenu")
 node_search_menu = NodePath("../../../../../SearchNodesMenu")
 
 [node name="AssetBrowser" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer" node_paths=PackedStringArray("asset_browser_list")]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fchqj")
 script = ExtResource("21_rcjor")
@@ -1489,10 +1503,11 @@ far = 100.0
 
 [node name="TextureCreator" type="Node3D" parent="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/TexturePreview/MarginContainer/TextureCreationViewport/SubViewportContainer/SubViewport" node_paths=PackedStringArray("texture_properties_panel", "cam")]
 script = ExtResource("27_n7bmg")
-texture_properties_panel = NodePath("../../../../../../../TexturePropertiesPanel")
+texture_properties_panel = NodePath("../../../../../../../MeshsetPropertiesPanel")
 cam = NodePath("../Camera3D")
 
 [node name="PropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("properties")]
+visible = false
 layout_mode = 2
 script = ExtResource("28_yaspb")
 properties = NodePath("Panel/MarginContainer/Properties")
@@ -1525,6 +1540,56 @@ layout_mode = 2
 theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 12
 columns = 2
+
+[node name="MaterialPropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("properties_container", "asset_browser_list")]
+layout_mode = 2
+script = ExtResource("34_t5khn")
+properties_container = NodePath("Panel/ScrollContainer/MarginContainer/VBoxContainer/PropertiesContainer")
+asset_browser_list = NodePath("../VSplitContainer/AssetBrowser/VSplitContainer/MarginContainer/AssetBrowserList")
+
+[node name="Panel" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/MaterialPropertiesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("1_m1kmx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ra50")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MaterialPropertiesPanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MaterialPropertiesPanel/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MaterialPropertiesPanel/Panel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/ViewsContainer/HSplitContainer/MaterialPropertiesPanel/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("22_w28hf")
+theme_override_font_sizes/font_size = 24
+text = "Material Properties"
+
+[node name="PropertiesContainer" type="VBoxContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MaterialPropertiesPanel/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="ExportPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("file_dialog", "meshinstances_to_export")]
 visible = false
@@ -1577,6 +1642,7 @@ text = "Exported file type"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/ViewsContainer/HSplitContainer/ExportPanel/Panel/MarginContainer/ExportPropertiesContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 16
 selected = 0
 item_count = 1
@@ -1585,6 +1651,7 @@ popup/item_0/id = 0
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/ViewsContainer/HSplitContainer/ExportPanel/Panel/MarginContainer/ExportPropertiesContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 button_pressed = true
 text = "Merge all meshes into one mesh"
 flat = true
@@ -1607,7 +1674,7 @@ access = 2
 filters = PackedStringArray("*.glb")
 use_native_dialog = true
 
-[node name="TexturePropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("add_meshset_menu", "meshset_list", "meshset_mesh_preview_container", "texture_creator_node", "properties")]
+[node name="MeshsetPropertiesPanel" type="Control" parent="MarginContainer/ViewsContainer/HSplitContainer" node_paths=PackedStringArray("add_meshset_menu", "meshset_list", "meshset_mesh_preview_container", "texture_creator_node", "properties")]
 visible = false
 layout_mode = 2
 script = ExtResource("29_3xprf")
@@ -1617,7 +1684,7 @@ meshset_mesh_preview_container = NodePath("Panel/TabContainer/Meshset settings/V
 texture_creator_node = NodePath("../VSplitContainer/TexturePreview/MarginContainer/TextureCreationViewport/SubViewportContainer/SubViewport/TextureCreator")
 properties = NodePath("Panel/TabContainer/Texture Properties/MarginContainer/PropertiesContainer")
 
-[node name="Panel" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel"]
+[node name="Panel" type="Panel" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1628,7 +1695,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_m1kmx")
 theme_override_styles/panel = SubResource("StyleBoxFlat_0ra50")
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1637,12 +1704,12 @@ grow_horizontal = 2
 grow_vertical = 2
 current_tab = 1
 
-[node name="Texture Properties" type="TabBar" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer"]
+[node name="Texture Properties" type="TabBar" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Texture Properties"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Texture Properties"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1654,17 +1721,17 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="PropertiesContainer" type="GridContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Texture Properties/MarginContainer"]
+[node name="PropertiesContainer" type="GridContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Texture Properties/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/v_separation = 12
 columns = 2
 
-[node name="Meshset settings" type="TabBar" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer"]
+[node name="Meshset settings" type="TabBar" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings"]
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1674,33 +1741,33 @@ grow_vertical = 2
 theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_7urro")
 split_offset = 550
 
-[node name="MeshsetPropertiesContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer"]
+[node name="MeshsetPropertiesContainer" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="MeshsetProperties" type="GridContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer"]
+[node name="MeshsetProperties" type="GridContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("29_e4rdy")
+theme_override_fonts/font = ExtResource("22_w28hf")
 theme_override_font_sizes/font_size = 24
 text = "Meshsets"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AddMeshsetButton" type="Button" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer"]
+[node name="AddMeshsetButton" type="Button" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
@@ -1714,7 +1781,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3au8b")
 icon = ExtResource("31_m1kmx")
 icon_alignment = 1
 
-[node name="RemoveMeshsetButton" type="Button" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer"]
+[node name="RemoveMeshsetButton" type="Button" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
@@ -1728,11 +1795,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_cf04j")
 icon = ExtResource("32_3xprf")
 icon_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MeshsetList" type="ItemList" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties"]
+[node name="MeshsetList" type="ItemList" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties"]
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -1743,18 +1810,18 @@ theme_override_styles/selected = SubResource("StyleBoxFlat_i2dcp")
 icon_scale = 0.95
 fixed_icon_size = Vector2i(130, 130)
 
-[node name="MeshsetIndividualSettings" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer"]
+[node name="MeshsetIndividualSettings" type="MarginContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="MeshPreviewsContainer" type="HFlowContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings/ScrollContainer"]
+[node name="MeshPreviewsContainer" type="HFlowContainer" parent="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetIndividualSettings/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1822,6 +1889,8 @@ text = "Add meshset"
 
 [node name="ImportButton" type="Button" parent="AddMeshsetMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4g0da")
 text = "Import custom meshset"
 
 [node name="HSeparator" type="HSeparator" parent="AddMeshsetMenu/Panel/MarginContainer/VBoxContainer"]
@@ -1854,6 +1923,7 @@ alignment = 2
 
 [node name="Cancel" type="Button" parent="AddMeshsetMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxFlat_3nqck")
 theme_override_styles/hover = SubResource("StyleBoxFlat_low3o")
@@ -1868,6 +1938,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_mw8t6")
 
 [node name="AddButton" type="Button" parent="AddMeshsetMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxFlat_3nqck")
 theme_override_styles/hover = SubResource("StyleBoxFlat_low3o")
@@ -1934,6 +2005,7 @@ theme = ExtResource("1_m1kmx")
 
 [node name="SearchButton" type="Button" parent="NodeAddMenu/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_m1kmx")
 text = "Search"
 alignment = 0
@@ -2029,9 +2101,9 @@ allow_search = false
 [connection signal="item_clicked" from="MarginContainer/ViewsContainer/HSplitContainer/VSplitContainer/AssetBrowser/VSplitContainer/MarginContainer/AssetBrowserList" to="." method="_on_asset_browser_list_item_clicked"]
 [connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/ExportPanel/Panel/MarginContainer/ExportPropertiesContainer/ExportButton" to="MarginContainer/ViewsContainer/HSplitContainer/ExportPanel" method="_on_export_button_pressed"]
 [connection signal="file_selected" from="MarginContainer/ViewsContainer/HSplitContainer/ExportPanel/Panel/MarginContainer/ExportPropertiesContainer/FileDialog" to="MarginContainer/ViewsContainer/HSplitContainer/ExportPanel" method="_on_file_dialog_file_selected"]
-[connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer/AddMeshsetButton" to="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel" method="_on_add_meshset_button_pressed"]
-[connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer/RemoveMeshsetButton" to="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel" method="_on_remove_meshset_button_pressed"]
-[connection signal="item_selected" from="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/MeshsetList" to="MarginContainer/ViewsContainer/HSplitContainer/TexturePropertiesPanel" method="_on_meshset_list_item_selected"]
+[connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer/AddMeshsetButton" to="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel" method="_on_add_meshset_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/HBoxContainer/HBoxContainer/RemoveMeshsetButton" to="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel" method="_on_remove_meshset_button_pressed"]
+[connection signal="item_selected" from="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel/Panel/TabContainer/Meshset settings/VSplitContainer/MeshsetPropertiesContainer/MeshsetProperties/MeshsetList" to="MarginContainer/ViewsContainer/HSplitContainer/MeshsetPropertiesPanel" method="_on_meshset_list_item_selected"]
 [connection signal="visibility_changed" from="AddMeshsetMenu" to="AddMeshsetMenu" method="_on_visibility_changed"]
 [connection signal="pressed" from="AddMeshsetMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer2/ImportButton" to="AddMeshsetMenu" method="_on_import_button_pressed"]
 [connection signal="pressed" from="AddMeshsetMenu/Panel/MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="AddMeshsetMenu" method="_on_cancel_pressed"]

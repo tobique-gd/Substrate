@@ -7,11 +7,12 @@ extends VSplitContainer
 @export var properties: Control
 @export var meshset_properties: Control
 @export var export_properties: Control
+@export var material_properties: Control
 
 var panels := {}
 var views := {
 	"generating": ["model_viewport", "node_editor", "properties"],
-	"texturing": ["model_viewport", "asset_browser"],
+	"texturing": ["model_viewport", "asset_browser", "material_properties"],
 	"texture_editing": ["texture_editor_viewport", "meshset_properties"],
 	"exporting": ["model_viewport", "export_properties"]
 }
@@ -25,8 +26,9 @@ func _ready():
 		"model_viewport": model_viewport,
 		"texture_editor_viewport": texture_editor_viewport,
 		"properties": properties,
-		"meshset_properties":meshset_properties,
-		"export_properties":export_properties
+		"meshset_properties": meshset_properties,
+		"export_properties": export_properties,
+		"material_properties": material_properties
 	}
 
 var current_view = "generating"

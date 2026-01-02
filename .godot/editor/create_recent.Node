@@ -1,3 +1,6 @@
+ScrollContainer
+VBoxContainer
+Label
 ConfirmationDialog
 PopupMenu
 FileDialog
@@ -5,11 +8,8 @@ Node
 HSeparator
 CheckBox
 Button
-Label
 OptionButton
-VBoxContainer
 TabContainer
 Tree
 LineEdit
 Control
-MarginContainer

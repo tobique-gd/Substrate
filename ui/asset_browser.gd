@@ -6,11 +6,40 @@ var materials : Dictionary = {}
 
 const DEFAULT_MATERIAL = preload("res://assets/materials/default_material.tres")
 
+func _ready() -> void:
+	SaveManager.register_property(self, "materials")
+
+
+func load_substrate_data():
+	await get_tree().process_frame
+	for mat in materials.values():
+		
+		var new_material = mat["material_resource"]
+	
+		var material_name = mat["material_name"]
+		var new_id = materials.size()
+		
+		
+		var preview_img = await MaterialPreview.render_material_preview(new_material, Vector2i(200, 200))
+		var tex : ImageTexture = ImageTexture.create_from_image(preview_img)
+		
+		
+		
+		var default_material_properties = {
+			"material_name": material_name,
+			"material_resource": new_material
+		}
+		var _idx = asset_browser_list.item_count
+		
+		print(tex)
+		asset_browser_list.add_item(material_name, tex)
+		asset_browser_list.set_item_metadata(_idx, new_material)
+
 func _on_add_material_button_pressed() -> void:
 	if !asset_browser_list:
 		return
 	
-	var new_material = DEFAULT_MATERIAL
+	var new_material = DEFAULT_MATERIAL.duplicate(true)
 	
 	var material_name = generate_material_name()
 	var new_id = materials.size()
@@ -20,7 +49,6 @@ func _on_add_material_button_pressed() -> void:
 	
 	var default_material_properties = {
 		"material_name": material_name,
-		"material_tex": preview_img,
 		"material_resource": new_material
 	}
 	var _idx = asset_browser_list.item_count
@@ -29,6 +57,7 @@ func _on_add_material_button_pressed() -> void:
 	asset_browser_list.add_item(material_name, tex)
 	asset_browser_list.set_item_metadata(_idx, new_material)
 	
+
 
 func generate_material_name():
 	var mat_number = 1

@@ -247,7 +247,7 @@ func _init_properties_header() -> void:
 func _add_properties_header() -> void:
 	var label = Label.new()
 	label.text = "Texture Properties"
-	label.add_theme_font_override("font", load("res://assets/fonts/Lato/Lato-Black.ttf"))
+	label.add_theme_font_override("font", load("res://assets/fonts/Lato/Lato-Bold.ttf"))
 	label.add_theme_font_size_override("font_size", 24)
 	properties.add_child(label)
 	properties.add_child(HSeparator.new())

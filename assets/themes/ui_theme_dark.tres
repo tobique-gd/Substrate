@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=32 format=3 uid="uid://p4b58dght06n"]
+[gd_resource type="Theme" load_steps=35 format=3 uid="uid://p4b58dght06n"]
 
 [ext_resource type="Texture2D" uid="uid://dpexmx5ujq8gf" path="res://assets/icons/hslider/grabber.png" id="1_5p0n6"]
 [ext_resource type="Texture2D" uid="uid://bo6fdq04betes" path="res://assets/icons/graph_node/port.png" id="1_sohes"]
@@ -7,9 +7,9 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exypi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p0n6"]
-content_margin_left = 5.0
+content_margin_left = 6.0
 content_margin_top = 2.0
-content_margin_right = 2.0
+content_margin_right = 6.0
 content_margin_bottom = 2.0
 bg_color = Color(0.1827, 0.19453, 0.21, 1)
 corner_radius_top_left = 4
@@ -18,9 +18,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ps4n"]
-content_margin_left = 5.0
+content_margin_left = 6.0
 content_margin_top = 2.0
-content_margin_right = 2.0
+content_margin_right = 6.0
 content_margin_bottom = 2.0
 bg_color = Color(0.2225, 0.234417, 0.25, 1)
 corner_radius_top_left = 4
@@ -29,24 +29,20 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sohes"]
-content_margin_left = 5.0
+content_margin_left = 6.0
 content_margin_top = 2.0
-content_margin_right = 2.0
+content_margin_right = 6.0
 content_margin_bottom = 2.0
-draw_center = false
+bg_color = Color(0.145999, 0.156078, 0.169259, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61c6n"]
-content_margin_left = 5.0
+content_margin_left = 6.0
 content_margin_top = 2.0
-content_margin_right = 2.0
+content_margin_right = 6.0
 content_margin_bottom = 2.0
 bg_color = Color(0.22, 0.233, 0.25, 1)
 corner_radius_top_left = 4
@@ -54,9 +50,37 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yq6l5"]
+content_margin_left = 4.0
+bg_color = Color(0.462745, 0.498039, 0.541176, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbl3e"]
+content_margin_left = 4.0
+bg_color = Color(0.4644, 0.49968, 0.54, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xqs0"]
-content_margin_left = 2.0
-bg_color = Color(0.4074, 0.41412, 0.42, 1)
+content_margin_left = 4.0
+bg_color = Color(0.360784, 0.388235, 0.419608, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5n2gw"]
+content_margin_left = 4.0
+bg_color = Color(0.360784, 0.388235, 0.419608, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lktte"]
 bg_color = Color(0.30711, 0.307115, 0.324302, 0.427451)
@@ -276,7 +300,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqhmi"]
-bg_color = Color(0.654232, 0.654232, 0.654232, 1)
+bg_color = Color(0.3612, 0.38766, 0.42, 1)
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
@@ -292,10 +316,10 @@ Button/styles/hover_pressed = SubResource("StyleBoxFlat_8ps4n")
 Button/styles/normal = SubResource("StyleBoxFlat_sohes")
 Button/styles/pressed = SubResource("StyleBoxFlat_61c6n")
 CheckBox/styles/focus = null
-CheckBox/styles/hover = null
-CheckBox/styles/hover_pressed = null
+CheckBox/styles/hover = SubResource("StyleBoxFlat_yq6l5")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_fbl3e")
 CheckBox/styles/normal = SubResource("StyleBoxFlat_1xqs0")
-CheckBox/styles/pressed = null
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_5n2gw")
 GraphEdit/colors/grid_major = Color(1, 1, 1, 0.0509804)
 GraphEdit/colors/grid_minor = Color(1, 1, 1, 0)
 GraphEdit/styles/menu_panel = SubResource("StyleBoxFlat_lktte")

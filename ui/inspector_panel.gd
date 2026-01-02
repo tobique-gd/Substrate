@@ -14,7 +14,7 @@ func build_ui(params, node):
 	
 	var node_name = Label.new()
 	node_name.text = node.resource.node_name
-	var font = load("res://assets/fonts/Lato/Lato-Black.ttf")
+	var font = load("res://assets/fonts/Lato/Lato-Bold.ttf")
 	node_name.add_theme_font_override("font", font)
 	node_name.add_theme_font_size_override("font_size", 24)
 
@@ -60,7 +60,7 @@ func clear():
 func clear_add():
 	var node_name = Label.new()
 	node_name.text = "Properties"
-	var font = load("res://assets/fonts/Lato/Lato-Black.ttf")
+	var font = load("res://assets/fonts/Lato/Lato-Bold.ttf")
 	node_name.add_theme_font_override("font", font)
 	node_name.add_theme_font_size_override("font_size", 24)
 	properties.add_child(node_name)
